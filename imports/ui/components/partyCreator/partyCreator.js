@@ -28,7 +28,7 @@ class PartyCreator {
         }
 
         return Meteor.users.findOne(owner) || 'nobody';
-      },
+      }
     });
   }
 }
@@ -38,12 +38,12 @@ const name = 'partyCreator';
 // create a module
 export default angular.module(name, [
   angularMeteor,
-  DisplayNameFilter,
+  DisplayNameFilter
 ]).component(name, {
   template,
   controllerAs: name,
   bindings: {
-    party: '<',
+    party: '<'
   },
-  controller: PartyCreator,
+  controller: PartyCreator
 });

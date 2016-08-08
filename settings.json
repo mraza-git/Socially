@@ -1,6 +1,7 @@
 {
   "galaxy.meteor.com": { 
      "env": { 
+       "ROOT_URL": "http://fixon.meteorapp.com",
        "MONGO_URL": "mongodb://metuser:Y0bma020@ds021895.mlab.com:21895/focv1"
      } 
    }

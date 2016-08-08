@@ -5,8 +5,7 @@ import uiRouter from 'angular-ui-router';
 import { Meteor } from 'meteor/meteor';
 
 import template from './partyDetails.html';
-import { Parties } from '../../../api/parties/index';
-// import { logger } from '../../../services/loggerService';
+import { Parties } from '../../../api/parties';
 import { name as PartyUninvited } from '../partyUninvited/partyUninvited';
 import { name as PartyMap } from '../partyMap/partyMap';
 
@@ -14,25 +13,25 @@ class PartyDetails {
   constructor($stateParams, $scope, $reactive) {
     'ngInject';
 
-    this.partyId = $stateParams.partyId;
     $reactive(this).attach($scope);
+
+    this.partyId = $stateParams.partyId;
 
     this.subscribe('parties');
     this.subscribe('users');
 
-    // The below helpers method will create two scope variables: party and users.
     this.helpers({
       party() {
         return Parties.findOne({
-          _id: $stateParams.partyId,
+          _id: $stateParams.partyId
         });
       },
-      users() { // Note the difference of creating party variable above and users below, users is pulled out of Meteor.users.
+      users() {
         return Meteor.users.find({});
       },
       isLoggedIn() {
         return !!Meteor.userId();
-      },
+      }
     });
   }
 
@@ -40,30 +39,29 @@ class PartyDetails {
     if (!this.party) {
       return false;
     }
+
     return !this.party.public && this.party.owner === Meteor.userId();
   }
 
   save() {
     Parties.update({
-      _id: this.party._id,
+      _id: this.party._id
     }, {
       $set: {
         name: this.party.name,
         description: this.party.description,
         public: this.party.public,
-        location: this.party.location,
-      },
+        location: this.party.location
+      }
     }, (error) => {
       if (error) {
         console.log('Oops, unable to update the party...');
       } else {
         console.log('Done!');
-        // logger.success('Successfully Done', 'Success');
       }
     });
   }
-  }
-
+}
 
 const name = 'partyDetails';
 
@@ -72,18 +70,18 @@ export default angular.module(name, [
   angularMeteor,
   uiRouter,
   PartyUninvited,
-  PartyMap,
+  PartyMap
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: PartyDetails,
+  controller: PartyDetails
 })
-.config(config);
+  .config(config);
 
 function config($stateProvider) {
   'ngInject';
 
-  $stateProvider.state(name, {
+  $stateProvider.state('partyDetails', {
     url: '/parties/:partyId',
     template: '<party-details></party-details>',
     resolve: {
@@ -93,7 +91,7 @@ function config($stateProvider) {
         } else {
           return $q.resolve();
         }
-      },
-    },
+      }
+    }
   });
 }

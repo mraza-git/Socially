@@ -1,0 +1,21 @@
+
+<div class="form-group" style="margin:25px;" >
+                                 
+        <form name="searchCat" ng-submit="serviceList.navigate()">
+                <div class="input-group input-group-lg">
+            <select class="form-control" placeholder="Search services..."
+                    ng-model="serviceList.service" 
+                    ng-options="ser as ser.serviceName for ser in serviceList.services">
+                    </div>
+                    <button type="submit"> Go!</button>
+        </form>
+<div>
+    <div class="col-md-3" ng-repeat="service in serviceList.services">
+        {{service.serviceName}}
+        
+         <a ui-sref="question({sid:service.id})">    
+            <img class="img-thumbnail" ng-src="{{serviceList.getSrc(service.pictureId)}}">
+        </a>
+    </div>
+
+</div>

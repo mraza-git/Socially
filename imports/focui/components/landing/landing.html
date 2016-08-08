@@ -1,0 +1,65 @@
+
+  <div flex layout="row" layout-align="center center" class="md-padding">
+    <div flex-sm="100" flex-gt-sm="90"
+            flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+        <form ng-submit="" class="md-padding">
+          <label > Search Services... </label>
+          <md-autocomplete
+            md-selected-item="item"
+            md-search-text="landing.searchText"
+            md-search-text-change="landing.searchTextChange(landing.searchText)"
+            md-selected-item-change="landing.selectedItemChange(item)"
+            md-items="item in landing.allservices | filter: landing.searchText"
+            md-item-text="item.serviceName"
+            md-min-length="0"
+            placeholder="What service are you looking for today">
+            <md-item-template>
+              <span md-highlight-text="landing.searchText" md-highlight-flags="^i">{{item.serviceName}}</span>
+            </md-item-template>
+            <!-- <md-not-found>
+              No states matching "{{landing.searchText}}" were found.
+              <a ng-click="landing.newState(landing.searchText)">Create a new one!</a>
+            </md-not-found> -->
+          </md-autocomplete>
+          <md-button ng-click="landing.openLogin($event)" class="md-primary">Login Modal</md-button>
+          <md-button ng-click="landing.openSignup($event)" class="md-primary">Register Modal</md-button>
+          <md-button ng-click="landing.openForgotPassword($event)" class="md-primary">Forgot Modal</md-button>
+          <md-button ng-click="landing.openChangePassword($event)" class="md-primary">Change Password Modal</md-button>
+        </form>
+    </div>
+
+  </div>
+
+    <div flex layout="row" class="md-whiteframe-z2 md-padding"  id="grid" >
+      <md-grid-list class="gridListdemoDynamicTiles" style="overflow:hidden"
+        md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter="8px" md-gutter-gt-sm="4px" flex>
+        <md-grid-tile ng-repeat="category in landing.categories" style="overflow:hidden;"
+                      md-rowspan="1"
+                      md-colspan="1"
+                      md-colspan-sm="1"
+                      md-colspan-xs="1" >
+          <!-- <md-card class="card" id="cardid1"> -->
+            <!-- <md-grid-tile-footer></md-grid-tile-footer> -->
+              <!--
+                <div class="md-media-sm card-media">
+                  <img  ng-src="{{landing.getSrc(category.pictureId)}}" flex style="max-width:350px;" class="md-card-image">
+                    <h3>{{category.categoryName}}</h3>
+                </div>
+              </a>
+          </md-card> -->
+      <md-card md-theme="{{ 'default' }}" md-theme-watch>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="card-media">
+            <a ui-sref="serviceList({cid:category.id})">
+            <img  ng-src="{{landing.getSrc(category.pictureId)}}" flex style="max-width:350px;" class="md-card-image">
+            <h3>{{category.categoryName}}</h3>
+          </a>
+          </div>
+
+        </md-card-content>
+      </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </div>

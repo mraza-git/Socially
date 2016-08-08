@@ -4,44 +4,49 @@ import uiRouter from 'angular-ui-router';
 import utilsPagination from 'angular-utils-pagination';
 
 import { Counts } from 'meteor/tmeasday:publish-counts';
+import { Meteor } from 'meteor/meteor';
 
-import template from './partiesList.html';
-import { Parties } from '../../../api/parties/index';
+import webTemplate from './web.html';
+import mobileTemplate from './mobile.html';
+import { Parties } from '../../../api/parties';
+import { Images } from '../../../api/images';
 import { name as PartiesSort } from '../partiesSort/partiesSort';
 import { name as PartiesMap } from '../partiesMap/partiesMap';
-import { name as PartyAdd } from '../partyAdd/partyAdd';
+import { name as PartyAddButton } from '../partyAddButton/partyAddButton';
 import { name as PartyRemove } from '../partyRemove/partyRemove';
 import { name as PartyCreator } from '../partyCreator/partyCreator';
 import { name as PartyRsvp } from '../partyRsvp/partyRsvp';
 import { name as PartyRsvpsList } from '../partyRsvpsList/partyRsvpsList';
-
-
+import { name as PartyImage } from '../partyImage/partyImage';
+import { name as PartyImages } from '../partyImages/partyImages';
 
 class PartiesList {
   constructor($scope, $reactive) {
     'ngInject';
-    const vm = this;
-    $reactive(vm).attach($scope);
-    vm.perPage = 4;
-    vm.page = 1;
-    vm.sort = {
-      name: 1,
-    };
-    vm.searchText = '';
 
-    vm.subscribe('parties', () => [{
-      limit: parseInt(vm.perPage),
-      skip: parseInt((vm.getReactively('page') - 1) * vm.perPage),
-      sort: vm.getReactively('sort'),
-    }, vm.getReactively('searchText'),
+    $reactive(this).attach($scope);
+
+    this.perPage = 3;
+    this.page = 1;
+    this.sort = {
+      name: 1
+    };
+    this.searchText = '';
+
+    this.subscribe('parties', () => [{
+        limit: parseInt(this.perPage),
+        skip: parseInt((this.getReactively('page') - 1) * this.perPage),
+        sort: this.getReactively('sort')
+      }, this.getReactively('searchText')
     ]);
 
-    vm.subscribe('users');
+    this.subscribe('users');
+    this.subscribe('images');
 
-    vm.helpers({
+    this.helpers({
       parties() {
-        return Parties.find({ }, {
-          sort: vm.getReactively('sort'),
+        return Parties.find({}, {
+          sort : this.getReactively('sort')
         });
       },
       partiesCount() {
@@ -70,6 +75,7 @@ class PartiesList {
 }
 
 const name = 'partiesList';
+const template = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // create a module
 export default angular.module(name, [
@@ -78,23 +84,25 @@ export default angular.module(name, [
   utilsPagination,
   PartiesSort,
   PartiesMap,
-  PartyAdd,
+  PartyAddButton,
   PartyRemove,
   PartyCreator,
   PartyRsvp,
   PartyRsvpsList,
+  PartyImage,
+  PartyImages,
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: PartiesList,
+  controller: PartiesList
 })
-.config(config);
+  .config(config);
 
 function config($stateProvider) {
   'ngInject';
   $stateProvider
     .state('parties', {
       url: '/parties',
-      template: '<parties-list></parties-list>',
+      template: '<parties-list></parties-list>'
     });
 }
