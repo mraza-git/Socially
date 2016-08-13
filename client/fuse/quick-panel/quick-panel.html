@@ -1,0 +1,35 @@
+<md-content ng-init="chatTab = './tabs/chat/chat-tab.html'">
+    <md-tabs md-no-pagination md-swipe-content md-stretch-tabs="always">
+        <md-tab>
+            <md-tab-label>
+                <span translate="QUICKPANEL.TODAY">TODAY</span>
+            </md-tab-label>
+            <md-tab-body>
+                <md-content class="today-tab scrollable" ms-scroll
+                            ng-include src="chatTab">
+                </md-content>
+            </md-tab-body>
+        </md-tab>
+        <md-tab>
+            <md-tab-label>
+                <span translate="QUICKPANEL.CHAT">CHAT</span>
+            </md-tab-label>
+            <md-tab-body>
+                <md-content class="chat-tab scrollable" ms-scroll
+                            ng-include="chatTab"
+                            ng-controller="ChatTabController as vm">
+                </md-content>
+            </md-tab-body>
+        </md-tab>
+        <md-tab>
+            <md-tab-label>
+                <span translate="QUICKPANEL.ACTIVITY">ACTIVITY</span>
+            </md-tab-label>
+            <md-tab-body ng-init="avtivityTab ='./tabs/activity/activity-tab.html' ">
+                <md-content class="activity-tab scrollable" ms-scroll
+                            ng-include src="activityTab">
+                </md-content>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</md-content>

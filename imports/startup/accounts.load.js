@@ -1,5 +1,5 @@
 import  {Meteor} from "meteor/meteor";
-import {Roles} from "meteor/alanning:roles"
+import {Roles} from "meteor/alanning:roles";
 // configure first upperclass users
 Meteor.startup(function () {
   if (Meteor.users.find().fetch().length === 0) {

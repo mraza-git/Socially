@@ -1,0 +1,50 @@
+<md-content layout="row" layout-align="center start" layout-fill layout-margin>
+  <md-whiteframe layout="column" flex flex-md="80" flex-lg="75" flex-gt-lg="60" class="md-whiteframe-z2" >
+    <md-toolbar class="md-primary md-tall" layout="column" layout-align="end" layout-fill>
+      <div layout="row" class="md-toolbar-tools md-toolbar-tools-bottom">
+        <h3 class="md-display-1">
+          Users
+        </h3>
+      </div>
+    </md-toolbar>
+
+    <div layout="row" layout-margin layout-padding>
+      <div layout="column" layout-fill layout-margin>
+              <form class="md-whiteframe-z1" flex ng-submit="save()" name="form" novalidate layout-padding="">
+                <p>Add a User</p>
+                <div flex layout="row" layout-align="space-between center">
+                  <md-input-container flex="80">
+                    <label>Name</label>
+                    <input ng-model="newAdmin.name" >
+                  </md-input-container>
+                  <md-input-container >
+                    <input class="md-button md-raised" type="submit" value="Add">
+                  </md-input-container>
+                </div>
+              </form>
+              <form name="searchForm" layout="row" layout-padding="" >
+                <md-input-container flex="65">
+                  <label>Search</label>
+                  <input ng-model="search" >
+                </md-input-container>
+                <md-select ng-model="userList.orderProperty" flex="35">
+                  <md-option value="1">Ascending</md-option>
+                  <md-option value="-1">Descending</md-option>
+                </md-select>
+              </form>
+              <ul>
+                <li dir-paginate="user in userList.users | itemsPerPage: userList.perPage" total-items="userList.numberOfUsers" current-page='userList.page'>
+                  <p><a href="/admin/{{admin._id}}">{{ user.profile.name }}</a> <button ng-click="userList.remove(admin)">&times;</button></p>
+                </li>
+              </ul>
+              <dir-pagination-controls on-page-change="userList.pageChanged(newPageNumber)"></dir-pagination-controls>
+
+              <p>Total number of admin: {{userList.numberOfUsers}}</p>
+            </div>
+
+
+
+    </div>
+
+</md-whiteframe>
+</md-content>

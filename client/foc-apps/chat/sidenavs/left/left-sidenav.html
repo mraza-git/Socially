@@ -1,0 +1,26 @@
+<!-- CONTACTS VIEW -->
+<div ng-init="contacts='./views/contacts/contacts-view.html'"
+     ng-show="vm.leftSidenavView === 'contacts'"
+     class="view contacts-view animate-slide-left"
+     ng-include="contacts"
+     layout="column" flex>
+</div>
+<!-- / CONTACTS VIEW -->
+
+<!-- USER VIEW -->
+<div nginit="users='./views/user/user-view.html'"
+     ng-show="vm.leftSidenavView ==='user'"
+     class="view user-view animate-slide-left"
+     ng-include="users"
+     layout="column" flex>
+</div>
+<!-- USER VIEW -->
+
+<!-- MAIN - DEFAULT VIEW -->
+<div ng-init="chats='./views/chats/chats-view.html'"
+     ng-hide="vm.leftSidenavView"
+     class="view chats-view animate-slide-right"
+     ng-include="chats"
+     layout="column" flex>
+</div>
+<!-- / MAIN - DEFAULT VIEW -->

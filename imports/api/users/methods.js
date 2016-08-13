@@ -1,4 +1,5 @@
 import {Meteor} from 'meteor/meteor';
+import {Roles} from 'meteor/alanning:roles';
 
 export function updateUserImage(userid, newProfileImage) {
   if (Meteor.isServer) {
@@ -15,6 +16,19 @@ export function updateUserImage(userid, newProfileImage) {
     });
   }
 }
+export function checkRolesOnServer(roles,group){
+  var loggedInUser = Meteor.userId();
+  if (!Roles.userIsInRole(loggedInUser, roles, group)) {
+        throw new Meteor.Error(403, "Access denied");
+
+  }
+  else {
+    console.log("Admin Logged In");
+    return true;
+  }
+}
+
+
 /*
 * Set password for admin and the user itself.
 */
@@ -95,4 +109,5 @@ Meteor.methods({
   setPassword,
   updateRoles,
   deleteUser,
+  checkRolesOnServer,
 });

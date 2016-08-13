@@ -1,11 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import {Roles} from 'meteor/alanning:roles'
+import {Roles} from 'meteor/alanning:roles';
+import { Counts } from 'meteor/tmeasday:publish-counts';
+
 
 
 // Admin
 if (Meteor.isServer) {
-  Meteor.publish('users', function(options,searchString,group) {
+  Meteor.publish('adminusers', function(options,searchString,group) {
     var where = {
       'profile.name': {
         '$regex': '.*' + (searchString || '') + '.*',
