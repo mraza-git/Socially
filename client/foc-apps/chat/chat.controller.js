@@ -1,6 +1,5 @@
 import './chat.module.js';
-import leftSidenavTemplate from './sidenavs/left/left-sidenav.html';
-import rightSidenavTemplate from './sidenavs/right/right-sidenav.html';
+
 
 (function ()
 {
@@ -22,8 +21,7 @@ import rightSidenavTemplate from './sidenavs/right/right-sidenav.html';
         vm.user = User.data;
         vm.leftSidenavView = false;
         vm.chat = undefined;
-        vm.leftSidenavTemplate  = leftSidenavTemplate;
-        vm.rightSidenavTemplate  = rightSidenavTemplate;
+      
 
         // Methods
         vm.getChat = getChat;

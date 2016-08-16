@@ -1,26 +1,23 @@
 <!-- CONTACTS VIEW -->
-<div ng-init="contacts='./views/contacts/contacts-view.html'"
-     ng-show="vm.leftSidenavView === 'contacts'"
+<div ng-show="vm.leftSidenavView === 'contacts'"
      class="view contacts-view animate-slide-left"
-     ng-include="contacts"
+     ng-include="client/foc-apps/sidenavs/left/views/contacts/contacts-view.html"
      layout="column" flex>
 </div>
 <!-- / CONTACTS VIEW -->
 
 <!-- USER VIEW -->
-<div nginit="users='./views/user/user-view.html'"
-     ng-show="vm.leftSidenavView ==='user'"
+<div ng-show="vm.leftSidenavView ==='user'"
      class="view user-view animate-slide-left"
-     ng-include="users"
+     ng-include="client/foc-apps/sidenavs/left/views/user/user-view.html"
      layout="column" flex>
 </div>
 <!-- USER VIEW -->
 
 <!-- MAIN - DEFAULT VIEW -->
-<div ng-init="chats='./views/chats/chats-view.html'"
-     ng-hide="vm.leftSidenavView"
+<div ng-hide="vm.leftSidenavView"
      class="view chats-view animate-slide-right"
-     ng-include="chats"
+     ng-include="client/foc-apps/sidenavs/left/views/chats/chats-view.html"
      layout="column" flex>
 </div>
 <!-- / MAIN - DEFAULT VIEW -->

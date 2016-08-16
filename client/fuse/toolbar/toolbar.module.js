@@ -1,9 +1,10 @@
+import {name as toolbarUser} from '../../../imports/focui/components/toolbaruser/toolbaruser.js';
 (function ()
 {
     'use strict';
 
     angular
-        .module('app.toolbar', [])
+        .module('app.toolbar', [toolbarUser])
         .config(config);
 
     /** @ngInject */

@@ -1,0 +1,34 @@
+<!-- CONTACTS VIEW -->
+<!-- <div ng-show="vm.leftSidenavView === 'contacts'" -->
+<div
+     class="view contacts-view animate-slide-left"
+     layout="column" flex>
+      <!-- CONTACT COMPONENT -->
+      <!-- <nav-contact></nav-contact> -->
+      <!-- /CONTACT COMPONENT -->
+</div>
+<!-- / CONTACTS VIEW -->
+
+<!-- USER VIEW -->
+<!-- <div ng-show="vm.leftSidenavView ==='user'" -->
+<div
+     class="view user-view animate-slide-left"
+     layout="column" flex>
+    <!-- USER VIEW COMPONENT-->
+    <!-- <nav-user></nav-user> -->
+    <!-- /USER VIEW COMPONENT-->
+
+</div>
+<!-- USER VIEW -->
+
+<!-- MAIN - DEFAULT VIEW -->
+<div ng-hide="vm.leftSidenavView"
+     class="view default-view animate-slide-right"
+     layout="column" flex>
+
+     <!-- DEFAULT VIEW COMPONENT-->
+    <nav-default></nav-default>
+     <!-- /DEFAULT VIEW COMPONENT-->
+
+</div>
+<!-- / MAIN - DEFAULT VIEW -->

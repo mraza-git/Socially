@@ -8,11 +8,20 @@ import {Accounts} from "meteor/accounts-base";
 import { Roles } from "meteor/alanning:roles";
 import utilsPagination from 'angular-utils-pagination';
 
+import {name as userListNav} from '../../userlistnav/userlistnav';
+
+import './userlist.scss';
 import template from './userslist.web.html';
 
 class UserList {
   constructor($scope, $reactive, $state,$mdToast) {
     'ngInject';
+    this.page = 1;
+    this.perPage = 3;
+    this.sort = { name:1};
+    this.orderProperty = '1';
+
+
     this.$state = $state;
     this.userId = Meteor.userId();
     this.$mdToast = $mdToast;
@@ -39,10 +48,6 @@ class UserList {
       });
 
 
-    this.page = 1;
-    this.perPage = 3;
-    this.sort = { name_sort:1};
-    this.orderProperty = '1';
   }
   pageChanged = function(newPage) {
     console.log(newPage);
@@ -78,7 +83,8 @@ const name = 'userList';
 export default angular.module(name, [
   angularMeteor,
   utilsPagination,
-  'app.core'
+  'app.core',
+  userListNav,
 ])
   .component(name, {
     template,
