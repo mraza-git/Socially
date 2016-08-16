@@ -1,0 +1,64 @@
+@import '../../node_modules/angular-material/angular-material.scss';
+
+@import '../fuse/core/scss/partials/reset';
+@import '../fuse/core/scss/partials/variables';
+@import '../fuse/core/scss/partials/mixins';
+@import '../fuse/core/scss/partials/angular-material-extend';
+@import '../fuse/core/scss/partials/layouts-template';
+@import '../fuse/core/scss/partials/layouts-page';
+@import '../fuse/core/scss/partials/animations';
+@import '../fuse/core/scss/partials/colors';
+@import '../fuse/core/scss/partials/icons';
+@import '../fuse/core/scss/partials/material';
+@import '../fuse/core/scss/partials/typography';
+
+@import '../fuse/core/scss/partials/plugins/angular-google-map';
+@import '../fuse/core/scss/partials/plugins/angular-moment-picker';
+@import '../fuse/core/scss/partials/plugins/c3';
+@import '../fuse/core/scss/partials/plugins/chartist';
+@import '../fuse/core/scss/partials/plugins/chartjs';
+@import '../fuse/core/scss/partials/plugins/datatable';
+@import '../fuse/core/scss/partials/plugins/highlight';
+@import '../fuse/core/scss/partials/plugins/nvd3';
+@import '../fuse/core/scss/partials/plugins/perfect-scrollbar';
+@import '../fuse/core/scss/partials/plugins/text-angular';
+
+@import '../fuse/core/scss/partials/helpers';
+@import '../fuse/core/scss/partials/print';
+
+
+////////////////////////////////////////////////
+//////    Directives                      ////
+///////////////////////////////////////////////
+
+@import '../fuse/core/directives/ms-card/ms-card';
+@import '../fuse/core/directives/ms-form-wizard/ms-form-wizard';
+@import '../fuse/core/directives/ms-info-bar/ms-info-bar';
+@import '../fuse/core/directives/ms-masonry/ms-masonry';
+@import '../fuse/core/directives/ms-material-color-picker/ms-material-color-picker';
+@import '../fuse/core/directives/ms-nav/ms-nav';
+@import '../fuse/core/directives/ms-navigation/ms-navigation';
+@import '../fuse/core/directives/ms-responsive-table/ms-responsive-table';
+@import '../fuse/core/directives/ms-scroll/ms-scroll';
+@import '../fuse/core/directives/ms-search-bar/ms-search-bar';
+@import '../fuse/core/directives/ms-shortcuts/ms-shortcuts';
+@import '../fuse/core/directives/ms-splash-screen/ms-splash-screen';
+@import '../fuse/core/directives/ms-stepper/ms-stepper';
+@import '../fuse/core/directives/ms-timeline/ms-timeline';
+@import '../fuse/core/directives/ms-widget/ms-widget';
+@import '../fuse/core/directives/ms-stepper/templates/horizontal/horizontal';
+@import '../fuse/core/directives/ms-stepper/templates/vertical/vertical';
+
+////////////////////////////////////////////////
+//////    Themes and others        ////
+///////////////////////////////////////////////
+
+@import '../fuse/core/theme-options/theme-options';
+@import'../fuse/navigation/layouts/horizontal-navigation/navigation';
+@import'../fuse/navigation/layouts/vertical-navigation/navigation';
+@import'../fuse/navigation/layouts/vertical-navigation-fullwidth-toolbar-2/navigation';
+@import'../fuse/quick-panel/quick-panel';
+@import'../fuse/toolbar/toolbar';
+@import'../fuse/toolbar/layouts/content-with-toolbar/toolbar';
+@import'../fuse/toolbar/layouts/horizontal-navigation/toolbar';
+@import'../fuse/toolbar/layouts/vertical-navigation-fullwidth-toolbar-2/toolbar';

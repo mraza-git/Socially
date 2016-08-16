@@ -1,5 +1,13 @@
-<md-content layout="row" layout-align="center start" layout-fill layout-margin>
-  <md-whiteframe layout="column" flex flex-md="80" flex-lg="75" flex-gt-lg="60" class="md-whiteframe-z2" >
+<!-- User List App  -->
+<div id="user-list" class="page-layout carded fullwidth">
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg md-accent-bg"></div>
+  <!-- /TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center" flex-gt-md="80">
+
+    <!-- TOOLBAR -->
     <md-toolbar class="md-primary md-tall" layout="column" layout-align="end" layout-fill>
       <div layout="row" class="md-toolbar-tools md-toolbar-tools-bottom">
         <h3 class="md-display-1">
@@ -7,9 +15,81 @@
         </h3>
       </div>
     </md-toolbar>
+    <!-- TOOLBAR -->
 
-    <div layout="row" layout-margin layout-padding>
-      <div layout="column" layout-fill layout-margin>
+    <!-- CONTENT CARD -->
+    <div class="content-card" layout="row" flex>
+
+      <!-- LEFT SIDENAV -->
+      <md-sidenav class="sidenav left-sidenav md-sidenav-left md-whiteframe-4dp"
+                  md-is-locked-open="$mdMedia('gt-md')"
+                  md-component-id="left-sidenav"
+                  ms-sidenav-helper
+                  layout="column">
+                  <user-list-nav></user-list-nav>
+      </md-sidenav>
+
+        <!-- USER DETAIL -->
+        <div class="user" layout="column" flex>
+        <!-- USER DETAIL TOOLBAR -->
+          <md-toolbar class="user-toolbar">
+            <div class="md-toolbar-tools">
+              <!-- RESPONSIVE USER BUTTON-->
+              <md-button class="hide-gt-md responsive-user-button md-icon-button"
+                         ng-click="vm.toggleLeftSidenavView(false);vm.toggleSidenav('left-sidenav')"
+                         aria-label="user button">
+                  <md-icon md-font-icon="icon-hangouts s36"></md-icon>
+              </md-button>
+              <!-- / RESPONSIVE USER BUTTON-->
+
+              <!-- USER -->
+              <div class="user-contact" layout="row" layout-align="start center"
+                   ng-click="vm.toggleSidenav('right-sidenav')">
+
+                  <div class="avatar-wrapper">
+
+                      <img ng-src="{{vm.contacts.getById(vm.chatContactId).avatar}}"
+                           class="avatar" alt="{{vm.contacts.getById(vm.chatContactId).name}}"/>
+
+                      <i class="icon icon- s16 status"
+                         ng-class="vm.contacts.getById(vm.chatContactId).status">
+                      </i>
+
+                  </div>
+
+                  <div class="user-contact-name">
+                      <!-- {{vm.contacts.getById(vm.chatContactId).name}} -->
+                      User Name
+                  </div>
+
+              </div>
+              <!-- / USER-->
+              <!--OPTIONS BUTTON  -->
+              <md-menu md-position-mode="target-right target">
+                  <md-button class="md-icon-button" ng-click="$mdOpenMenu()"
+                             aria-label="more">
+                      <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+                  </md-button>
+                  <md-menu-content width="3">
+                      <md-menu-item>
+                          <md-button ng-click="vm.toggleSidenav('right-sidenav')" translate="USER.CONTACT_INFO">
+                              Open Rightside Nav
+                          </md-button>
+                      </md-menu-item>
+                      <md-menu-item>
+                          <md-button ng-click="EditContact()" translate="USER.EDIT_DETAILS">
+                              Edit Contact Details
+                          </md-button>
+                      </md-menu-item>
+                  </md-menu-content>
+              </md-menu>
+              <!--/ OPTIONS BUTTON  -->
+            </div>
+          </md-toolbar>
+          <!--/USER DETAIL TOOLBAR  -->
+          <!-- USER DETAIL CONTENT -->
+          <md-content id="user-content" flex ms-scroll>
+            <div layout="column" layout-fill layout-margin ms-scroll>
               <form class="md-whiteframe-z1" flex ng-submit="save()" name="form" novalidate layout-padding="">
                 <p>Add a User</p>
                 <div flex layout="row" layout-align="space-between center">
@@ -38,13 +118,18 @@
                 </li>
               </ul>
               <dir-pagination-controls on-page-change="userList.pageChanged(newPageNumber)"></dir-pagination-controls>
-
               <p>Total number of admin: {{userList.numberOfUsers}}</p>
             </div>
 
+          </md-content>
+          <!-- /USER DETAIL CONTENT -->
+        </div>
+        <!--/ USER  DETAIL-->
+     </div>
+    <!-- / Content Card -->
+  </div>
+  <!-- /CENTER -->
 
 
-    </div>
-
-</md-whiteframe>
-</md-content>
+</div>
+<!-- /User List App  -->

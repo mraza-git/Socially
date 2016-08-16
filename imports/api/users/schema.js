@@ -58,7 +58,25 @@ Schema.UserProfile = new SimpleSchema({
   "addresses.$.longitude":{
     type: Float32Array,
     optional:true
-  }
+  },
+  userStatus:{
+    type:Object,
+    optional:true,
+    blackbox:true
+  },
+  // "userStatus.title":{
+  //   type:String,
+  //   optional:true
+  // },
+  // "userStatus.icon":{
+  //   type:String,
+  //   optional:true
+  // },
+  // "userStatus.color":{
+  //   type:String,
+  //   optional:true
+  // },
+
 });
 
 Schema.User = new SimpleSchema({

@@ -18,7 +18,6 @@ if (Meteor.isServer) {
 
     if (Roles.userIsInRole(this.userId, ['manage-users', 'admin'],group?group:"default-group")) {
       return Meteor.users.find(where,options);
-
     } else {
       console.log("Un Authorized Access to users publication.");
       return this.ready();
@@ -32,4 +31,12 @@ if (Meteor.isServer) {
       _id: this.userId
     });
   });
+  // Meteor.publish('userStatus', function(id) {
+  //   return Meteor.users.findOne({
+  //     _id: id
+  //   },{
+  //     fields: { profile.userStatus: 1}
+  //   }
+  // );
+  // });
 }
