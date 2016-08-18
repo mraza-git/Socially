@@ -8,6 +8,7 @@ import ngResource from  'angular-resource';
 import 'angular-translate/dist/angular-translate';
 import 'angular-translate-loader-partial/angular-translate-loader-partial'
 import 'mobile-detect/mobile-detect';
+import 'angular-xeditable/dist/js/xeditable';
 import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngSanitize from 'angular-sanitize';
@@ -31,5 +32,6 @@ angular
           'pascalprecht.translate',
           ngMaterial,
           uiRouter,
+          'xeditable',
 
       ]);

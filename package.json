@@ -41,6 +41,7 @@
     "angular-translate-loader-partial": "^2.11.1",
     "angular-ui-router": "^0.2.18",
     "angular-utils-pagination": "^0.11.1",
+    "angular-xeditable": "^0.2.0",
     "fs": "0.0.2",
     "gm": "^1.22.0",
     "imagemagick": "^0.1.3",

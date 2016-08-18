@@ -12,6 +12,12 @@
 @import '../fuse/core/scss/partials/material';
 @import '../fuse/core/scss/partials/typography';
 
+@import '../foc-apps/profile/profile';
+@import '../foc-apps/profile/tabs/about/about';
+@import '../foc-apps/profile/tabs/photos-videos/photos-videos';
+@import '../foc-apps/profile/tabs/timeline/timeline';
+
+
 @import '../fuse/core/scss/partials/plugins/angular-google-map';
 @import '../fuse/core/scss/partials/plugins/angular-moment-picker';
 @import '../fuse/core/scss/partials/plugins/c3';

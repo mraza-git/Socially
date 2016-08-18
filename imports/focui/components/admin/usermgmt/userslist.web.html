@@ -1,5 +1,5 @@
 <!-- User List App  -->
-<div id="user-list" class="page-layout carded fullwidth">
+<div id="chat-app" class="page-layout carded fullwidth">
   <!-- TOP BACKGROUND -->
   <div class="top-bg md-accent-bg"></div>
   <!-- /TOP BACKGROUND -->
@@ -21,18 +21,21 @@
     <div class="content-card" layout="row" flex>
 
       <!-- LEFT SIDENAV -->
-      <md-sidenav class="sidenav left-sidenav md-sidenav-left md-whiteframe-4dp"
+      <md-sidenav class="sidenav left-sidenav md-sidenav-left"
                   md-is-locked-open="$mdMedia('gt-md')"
                   md-component-id="left-sidenav"
                   ms-sidenav-helper
                   layout="column">
-                  <user-list-nav></user-list-nav>
+                  <user-list-nav
+                      on-change="userList.onChange(userId)"
+                      layout="column" flex>
+                  </user-list-nav>
       </md-sidenav>
 
         <!-- USER DETAIL -->
-        <div class="user" layout="column" flex>
+        <div class="chat" layout="column" flex>
         <!-- USER DETAIL TOOLBAR -->
-          <md-toolbar class="user-toolbar">
+          <md-toolbar class="chat-toolbar">
             <div class="md-toolbar-tools">
               <!-- RESPONSIVE USER BUTTON-->
               <md-button class="hide-gt-md responsive-user-button md-icon-button"
@@ -43,7 +46,7 @@
               <!-- / RESPONSIVE USER BUTTON-->
 
               <!-- USER -->
-              <div class="user-contact" layout="row" layout-align="start center"
+              <div class="chat-contact" layout="row" layout-align="start center"
                    ng-click="vm.toggleSidenav('right-sidenav')">
 
                   <div class="avatar-wrapper">
@@ -52,14 +55,14 @@
                            class="avatar" alt="{{vm.contacts.getById(vm.chatContactId).name}}"/>
 
                       <i class="icon icon- s16 status"
-                         ng-class="vm.contacts.getById(vm.chatContactId).status">
+                         ng-class="userList.selectedUser.profile.userStatus.title">
                       </i>
 
                   </div>
 
-                  <div class="user-contact-name">
+                  <div class="chat-contact-name">
                       <!-- {{vm.contacts.getById(vm.chatContactId).name}} -->
-                      User Name
+                      {{userList.selectedUser.profile.name}}
                   </div>
 
               </div>
@@ -88,7 +91,7 @@
           </md-toolbar>
           <!--/USER DETAIL TOOLBAR  -->
           <!-- USER DETAIL CONTENT -->
-          <md-content id="user-content" flex ms-scroll>
+          <md-content id="chat-content" flex ms-scroll style="background: #FCFCFC;">
             <div layout="column" layout-fill layout-margin ms-scroll>
               <form class="md-whiteframe-z1" flex ng-submit="save()" name="form" novalidate layout-padding="">
                 <p>Add a User</p>
