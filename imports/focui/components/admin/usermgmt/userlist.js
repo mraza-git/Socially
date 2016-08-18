@@ -16,43 +16,24 @@ import template from './userslist.web.html';
 class UserList {
   constructor($scope, $reactive, $state,$mdToast) {
     'ngInject';
-    this.page = 1;
-    this.perPage = 3;
-    this.sort = { name:1};
-    this.orderProperty = '1';
-
-
+    $reactive(this).attach($scope);
     this.$state = $state;
-    this.userId = Meteor.userId();
     this.$mdToast = $mdToast;
 
-    $reactive(this).attach($scope);
-
+    this.subscribe('adminusers');
     this.helpers({
-        users: function() {
-          return Meteor.users.find({}, {
-            sort: $scope.getReactively('sort')
-          });
+        selectedUser: function(){
+          return Meteor.users.findOne({
+            _id: this.getReactively('selectedUserId')
+          },{
+            fields:{
+                "services.password":0
+            }
+          }
+          );
         },
-        numberOfUsers: function() {
-          return Counts.get('numberOfUsers');
-        }
       });
-
-      this.subscribe('adminusers', function() {
-        return [{
-          sort: $scope.getReactively('sort'),
-          limit: parseInt($scope.getReactively('perPage')),
-          skip: ((parseInt($scope.getReactively('page'))) - 1) * (parseInt($scope.getReactively('perPage')))
-        }, $scope.getReactively('search'),"default-group"];
-      });
-
-
   }
-  pageChanged = function(newPage) {
-    console.log(newPage);
-    this.page = newPage;
-  };
   $onInit (){
     if(Roles.userIsInRole(Meteor.userId(),['admin','manage-users'],"default-group")) {
       this.$mdToast.show(
@@ -72,6 +53,11 @@ class UserList {
       );
       this.$state.go('app.sample');
     }
+  }
+
+  onChange(userId){
+    this.selectedUserId = userId;
+    console.log(this.selectedUser);
   }
 
 }

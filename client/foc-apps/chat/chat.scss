@@ -274,21 +274,25 @@
         left: 28px;
         border-radius: 50%;
 
-        &.online {
+        &.Online {
             color: #4CAF50;
             &:before {
                 content: "\e709";
             }
         }
 
-        &.do-not-disturb {
-            color: #F44336;
-            &:before {
-                content: "\e912";
+        &.Do{
+            &.not{
+                &.Disturb{
+                  color: #F44336;
+                  &:before {
+                      content: "\e912";
+                  }
+                }
             }
         }
 
-        &.away {
+        &.Away {
             background-color: #FFC107;
             color: #FFFFFF;
             &:before {
@@ -296,7 +300,16 @@
             }
         }
 
-        &.offline {
+        &.Offline {
+            color: #4CAF50;
+            background-color: #FFFFFF;
+            &:before {
+                content: "\e704";
+                //content: "\e705";
+            }
+        }
+
+        &.Invisible {
             color: #4CAF50;
             background-color: #FFFFFF;
             &:before {

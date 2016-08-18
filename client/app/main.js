@@ -4,6 +4,7 @@ import {name as Landing} from '../landing/landing.js';
 import {name as userList} from '../../imports/focui/components/admin/usermgmt/userlist.js';
 import '../sample/sample.module.js';
 import '../foc-apps/chat/chat.module.js';
+import '../foc-apps/profile/profile.module.js';
 
 
 
@@ -37,6 +38,8 @@ angular
         userList,
 
         'app.chat',
+
+        'app.pages.profile'
 
     ]);
 

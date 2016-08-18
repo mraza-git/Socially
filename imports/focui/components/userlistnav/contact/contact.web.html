@@ -27,7 +27,7 @@
                 <md-icon md-font-icon="icon-magnify" class="icon s18">
                 </md-icon>
 
-                <input flex ng-model="vm.contactSearch" type="text" placeholder="Search contact" translate=""
+                <input flex ng-model="navContacts.contactSearch" type="text" placeholder="Search contact" translate=""
                        translate-attr-placeholder="CHAT.CONTACTS_SEARCH_PLACEHOLDER">
 
             </div>
@@ -44,25 +44,25 @@
 
     <!-- CONTACTS LIST-->
     <md-list class="contact-list">
-
+<!-- | filter: {profile:{name: navContacts.contactSearch}} | orderBy: 'name' :false | filter:query as filteredContact" -->
         <md-list-item class="contact md-3-line"
-                      ng-repeat="contact in vm.contacts  | filter: {name: vm.contactSearch} | orderBy: 'name' :false | filter:query as filteredContact"
+                      ng-repeat="contact in navContacts.contacts | filter: navContacts.contactSearch | filter:query as filteredContact"
                       ng-style="{'transform': 'translate3d(0px, '+$index * 100+'%, 0px)', 'z-index': filteredContact.length - $index}"
-                      ng-click="vm.getChat(contact.id)">
+                      ng-click="navContacts.changed(contact._id)">
 
             <div class="fist-letter md-accent-fg"
-                 ng-if="vm.contacts[$index].name.charAt(0) !== vm.contacts[$index-1].name.charAt(0)">
-                {{contact.name.charAt(0)}}
+                 ng-if="navContacts.contacts[$index].profile.name.charAt(0) !== navContacts.contacts[$index-1].profile.name.charAt(0)">
+                {{contact.profile.name.charAt(0)}}
             </div>
 
             <div class="avatar-wrapper">
-                <img ng-src="{{contact.avatar}}" class="md-avatar avatar" alt="{{contact.name}}"/>
-                <i class="icon icon- s16 status" ng-class="contact.status"></i>
+                <img ng-src="{{contact.avatar}}" class="md-avatar avatar" alt="{{contact.profile.name}}"/>
+                <i class="icon icon- s16 status" ng-class="contact.profile.userStatus.title"></i>
             </div>
 
             <div class="md-list-item-text">
-                <h3>{{contact.name}}</h3>
-                <p class="mood">{{contact.mood}}</p>
+                <h3>{{contact.profile.name}}</h3>
+                <p class="mood">{{contact.profile.mood}}</p>
             </div>
 
         </md-list-item>

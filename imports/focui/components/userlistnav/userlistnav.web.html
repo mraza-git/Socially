@@ -1,34 +1,39 @@
 <!-- CONTACTS VIEW -->
-<!-- <div ng-show="vm.leftSidenavView === 'contacts'" -->
+<!-- <div ng-show="userListNav.leftSidenavView === 'contacts' || userListNav.isAdmin" -->
 <div
      class="view contacts-view animate-slide-left"
      layout="column" flex>
       <!-- CONTACT COMPONENT -->
-      <!-- <nav-contact></nav-contact> -->
+      <nav-contacts
+        layout="column" flex
+        on-change = "userListNav.selectedUser(userId)"
+         >
+
+      </nav-contacts>
       <!-- /CONTACT COMPONENT -->
 </div>
 <!-- / CONTACTS VIEW -->
 
 <!-- USER VIEW -->
 <!-- <div ng-show="vm.leftSidenavView ==='user'" -->
-<div
+<!-- <div
      class="view user-view animate-slide-left"
-     layout="column" flex>
+     layout="column" flex> -->
     <!-- USER VIEW COMPONENT-->
     <!-- <nav-user></nav-user> -->
     <!-- /USER VIEW COMPONENT-->
 
-</div>
+<!-- </div> -->
 <!-- USER VIEW -->
 
 <!-- MAIN - DEFAULT VIEW -->
-<div ng-hide="vm.leftSidenavView"
+<!-- <div ng-hide="vm.leftSidenavView"
      class="view default-view animate-slide-right"
-     layout="column" flex>
+     layout="column" flex> -->
 
      <!-- DEFAULT VIEW COMPONENT-->
-    <nav-default></nav-default>
+    <!-- <nav-default></nav-default> -->
      <!-- /DEFAULT VIEW COMPONENT-->
 
-</div>
+<!-- </div> -->
 <!-- / MAIN - DEFAULT VIEW -->
