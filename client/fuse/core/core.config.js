@@ -1,3 +1,4 @@
+import './core.module.js';
 
 
 (function ()
@@ -6,17 +7,26 @@
 
     angular
         .module('app.core')
-        .config(config);
+        .config(config)
+        .config(function (flowFactoryProvider) {
+          flowFactoryProvider.factory = function (opts) {
+            var Flow = require('ng-flow/dist/ng-flow-standalone.js');
+            return new Flow(opts)
+         }
+       });
+
+
 
     /** @ngInject */
     function config($ariaProvider, $logProvider, msScrollConfigProvider, $translateProvider, fuseConfigProvider)
     {
         // Enable debug logging
         $logProvider.debugEnabled(true);
-
+        console.log()
         // angular-translate configuration
         $translateProvider.useLoader('$translatePartialLoader', {
             urlTemplate: '{part}/i18n/{lang}.json'
+
         });
         $translateProvider.preferredLanguage('en');
         $translateProvider.useSanitizeValueStrategy('sanitize');
@@ -41,5 +51,8 @@
         });
 
         /*eslint-enable */
+        // Flow configuration
+
+
     }
 })();

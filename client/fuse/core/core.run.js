@@ -1,3 +1,4 @@
+import "./core.module.js";
 (function ()
 {
     'use strict';

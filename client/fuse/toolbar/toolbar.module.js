@@ -10,7 +10,7 @@ import {name as toolbarUser} from '../../../imports/focui/components/toolbaruser
     /** @ngInject */
     function config($translatePartialLoaderProvider)
     {
-        $translatePartialLoaderProvider.addPart('app/toolbar');
+        $translatePartialLoaderProvider.addPart("assets/locale/toolbar");
     }
 })();
 (function ()

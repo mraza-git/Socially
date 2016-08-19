@@ -1,5 +1,6 @@
 import '../../fuse/core/core.module.js';
 import chatTemplate from './chat.html';
+import {name as ChatsView} from './sidenavs/left/views/chats/chats-view.js';
 
 
 (function ()
@@ -7,7 +8,9 @@ import chatTemplate from './chat.html';
     'use strict';
 
     angular
-        .module('app.chat', [])
+        .module('app.chat', [
+          //ChatsView,
+        ])
         .config(config);
 
     /** @ngInject */
@@ -36,7 +39,7 @@ import chatTemplate from './chat.html';
         });
 
         // Translation
-        $translatePartialLoaderProvider.addPart('app/main/apps/chat');
+        $translatePartialLoaderProvider.addPart('assets/locale/chat');
 
         // Api
 
@@ -49,12 +52,12 @@ import chatTemplate from './chat.html';
 
 
         // Navigation
-        msNavigationServiceProvider.saveItem('Chat', {
-            title : 'Chat',
+        msNavigationServiceProvider.saveItem('Messages', {
+            title : 'Messages',
             icon  : 'icon-hangouts',
             state : 'app.chat',
             badge : {
-                content: 13,
+                content: 7,
                 color  : '#09d261'
             },
             weight: 5

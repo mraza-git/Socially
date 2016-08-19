@@ -1,10 +1,15 @@
 import angular from 'angular';
 import { Meteor } from 'meteor/meteor';
 import {name as Landing} from '../landing/landing.js';
-import {name as userList} from '../../imports/focui/components/admin/usermgmt/userlist.js';
+import {name as userList} from '../../imports/focui/components/admin/usermgmt/userlist';
+import {name as CategoryList} from '../../imports/focui/components/admin/categories/categories';
+
 import '../sample/sample.module.js';
 import '../foc-apps/chat/chat.module.js';
 import '../foc-apps/profile/profile.module.js';
+import '../foc-apps/dashboard/dashboard-analytics.module.js';
+import '../foc-apps/contacts/contacts.module.js';
+import '../foc-apps/notes/notes.module.js';
 
 
 
@@ -15,7 +20,6 @@ import '../foc-apps/profile/profile.module.js';
  */
 angular
     .module('fuse', [
-
         // Core
         'app.core',
 
@@ -36,10 +40,20 @@ angular
 
         //Admin app
         userList,
+        CategoryList,
 
         'app.chat',
 
-        'app.pages.profile'
+        'app.pages.profile',
+
+        'app.dashboards.analytics',
+
+        'app.contacts',
+
+        'app.notes',
+
+
+
 
     ]);
 
