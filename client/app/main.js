@@ -7,10 +7,13 @@ import {name as CategoryList} from '../../imports/focui/components/admin/categor
 import '../sample/sample.module.js';
 import '../foc-apps/chat/chat.module.js';
 import '../foc-apps/profile/profile.module.js';
-import '../foc-apps/dashboard/dashboard-analytics.module.js';
+import '../foc-apps/dashboards/analytics/dashboard-analytics.module.js';
+
 import '../foc-apps/contacts/contacts.module.js';
 import '../foc-apps/notes/notes.module.js';
-
+import '../foc-apps/todo/todo.module.js';
+import '../foc-apps/projects/projects.module.js';
+import '../foc-apps/coming-soon/coming-soon.module.js';
 
 
 'use strict';
@@ -52,6 +55,11 @@ angular
 
         'app.notes',
 
+        'app.todo',
+
+        'app.projects',
+
+        'app.coming-soon',
 
 
 
@@ -99,6 +107,7 @@ angular
 import verticalNavigationFullwidthToolbar2_mainTemplate from '../fuse/core/layouts/vertical-navigation-fullwidth-toolbar-2.html';
 import verticalNavigationFullwidthToolbar2_toolbarTemplate from '../fuse/toolbar/layouts/vertical-navigation-fullwidth-toolbar-2/toolbar.html';
 import verticalNavigationFullwidthToolbar2_navigationTemplate from '../fuse/navigation/layouts/vertical-navigation-fullwidth-toolbar-2/navigation.html';
+import quickPanelTemplate from '../fuse/quick-panel/quick-panel.html';
 
 angular
     .module('fuse')
@@ -109,7 +118,7 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider)
 {
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise('/sample');
+    $urlRouterProvider.otherwise('/projects/dashboard');
 
     /**
      * Layout Style Switcher
@@ -184,10 +193,10 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider)
                     template: verticalNavigationFullwidthToolbar2_navigationTemplate,//layouts[layoutStyle].navigation,
                     controller : 'NavigationController as vm'
                 },
-                // 'quickPanel@app': {
-                //     templateUrl: '../fuse/quick-panel/quick-panel.html',
-                //     controller : 'QuickPanelController as vm'
-                // }
+                'quickPanel@app': {
+                    template   : quickPanelTemplate,
+                    controller : 'QuickPanelController as vm'
+                }
             }
         });
 }

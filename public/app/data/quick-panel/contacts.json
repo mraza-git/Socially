@@ -2,7 +2,7 @@
     "data": {
         "recent": [
             {
-                "name": "Alice Freeman",
+                "name": "Joe Ghumais",
                 "avatar": "assets/images/avatars/alice.jpg",
                 "lastMessage": "Are you going to commit latest...",
                 "status": "online",
@@ -103,7 +103,7 @@
                 ]
             },
             {
-                "name": "Vincent Munoz",
+                "name": "Mehdi Ismail",
                 "avatar": "assets/images/avatars/vincent.jpg",
                 "lastMessage": "Everybody, quickly gather in the...",
                 "status": "online",
@@ -119,7 +119,7 @@
         ],
         "all": [
             {
-                "name": "Alice Freeman",
+                "name": "Joe Ghumais",
                 "avatar": "assets/images/avatars/alice.jpg",
                 "status": "online"
             },
@@ -144,7 +144,7 @@
                 "status": "away"
             },
             {
-                "name": "Vincent Munoz",
+                "name": "Mehdi Ismail",
                 "avatar": "assets/images/avatars/vincent.jpg",
                 "status": "online"
             }

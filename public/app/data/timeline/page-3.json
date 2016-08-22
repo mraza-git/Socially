@@ -5,9 +5,9 @@
                 "template": "app/core/directives/ms-card/templates/template-9/template-9.html",
                 "avatar": {
                     "src": "assets/images/avatars/alice.jpg",
-                    "alt": "Alice Freeman"
+                    "alt": "Joe Ghumais"
                 },
-                "title": "Alice Freeman posted on Nature",
+                "title": "Joe Ghumais posted on Nature",
                 "subtitle": "Aug 29, 2015",
                 "text": "Look deep into nature, then you will understand everything better. Look deep into nature, then you will understand everything better.",
                 "media": {
@@ -19,7 +19,7 @@
             },
             "icon" : "icon-document",
             "time": "July 22, 2015, 12:33AM",
-            "event": "Alice Freeman shared an article with you"
+            "event": "Joe Ghumais shared an article with you"
         }
     ]
 }

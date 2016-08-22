@@ -38,9 +38,9 @@
                 "template": "app/core/directives/ms-card/templates/template-2/template-2.html",
                 "avatar": {
                     "src": "assets/images/avatars/alice.jpg",
-                    "alt": "Alice Freeman"
+                    "alt": "Joe Ghumais"
                 },
-                "title": "Alice Freeman posted on Nature",
+                "title": "Joe Ghumais posted on Nature",
                 "subtitle": "32 minutes ago",
                 "media": {
                     "image": {
@@ -52,7 +52,7 @@
             },
             "icon": "icon-document",
             "time": "July 22, 2015, 12:33AM",
-            "event": "Alice Freeman shared an article with public"
+            "event": "Joe Ghumais shared an article with public"
         },
         {
             "card": {
@@ -71,7 +71,7 @@
             },
             "icon": "icon-document",
             "time": "July 22, 2015, 12:33AM",
-            "event": "Alice Freeman shared an article with public"
+            "event": "Joe Ghumais shared an article with public"
         },
         {
             "card": {
@@ -88,7 +88,7 @@
             },
             "icon": "icon-document",
             "time": "July 22, 2015, 12:33AM",
-            "event": "Alice Freeman shared an article with public"
+            "event": "Joe Ghumais shared an article with public"
         }
     ]
 }

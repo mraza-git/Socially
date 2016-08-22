@@ -9,7 +9,7 @@
             <div class="content">
               <form editable-form name="editableForm" onaftersave="about.saveUser()">
 
-                <md-button class="md-fab contacts-button"
+                <md-button class="md-primary md-fab md-fab-bottom-right"
                     ng-click="editableForm.$show()"
                     aria-label="contacts button"
                     ng-show="!editableForm.$visible&&about.ofOwner">
@@ -51,12 +51,12 @@
 
 
                <!-- buttons to submit / cancel form -->
-               <md-button class="md-fab contacts-button"
+               <md-button class="md-accent md-fab md-fab-top-right"
                    type = 'submit'
                    aria-label="contacts button"
                    ng-disabled="editableForm.$waiting"
                    ng-show="editableForm.$visible">
-                   <md-icon md-font-icon="icon-upload"> </md-icon>
+                   <md-icon md-font-icon="icon-content-save"> </md-icon>
                </md-button>
 
               </form>

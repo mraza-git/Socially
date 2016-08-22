@@ -1,0 +1,25 @@
+{
+    "NOTES": {
+        "NOTES": "الملاحظات",
+        "SEARCH_NOTES": "مذكرات بحث",
+        "TOGGLE_SIDENAV": "SIDENAV تحول",
+        "OPEN_SEARCH_TOOLBAR": "شريط أدوات البحث المفتوح",
+        "CLOSE": "أغلق",        
+        "ARCHIVE": "أرشيف",
+        "REMINDERS": "تذكير",
+        "LABELS": "تسميات",
+        "NEW_LABEL": "تسمية جديدة",
+        "TAKE_A_NOTE": "..سجل ملاحظة",
+        "SEARCH_LABELS": "...تسميات البحث",
+        "SAVE": "حفظ",
+        "ADD": "إضافة",
+        "ADD_IMAGE": "إضافة صورة",
+        "TOGGLE_LABEL": "تسمية التحول",
+        "DELETE_IMAGE": "حذف صورة",
+        "NO_NOTES_YET":"...لا توجد اصوات",
+        "NO_NOTES_WITH_REMINDERS":"لم تلاحظ مع التذكير",
+        "NO_ARCHIVED_NOTES":"الملاحظات لا أرشفة",
+        "NO_NOTES_WITH_THIS_LABEL":"لم تلاحظ مع هذه التسمية",
+        "NO_RESULTS":"..لا نتائج"
+    }
+}

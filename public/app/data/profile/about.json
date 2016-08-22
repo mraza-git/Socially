@@ -59,15 +59,15 @@
         ],
         "friends": [
             {
-                "name": "Garry Newman",
+                "name": "Zeeshan Muhammad",
                 "avatar": "assets/images/avatars/garry.jpg"
             },
             {
-                "name": "Carl Henderson",
+                "name": "Robin Methew",
                 "avatar": "assets/images/avatars/carl.jpg"
             },
             {
-                "name": "Jane Dean",
+                "name": "Zainab Shoaib",
                 "avatar": "assets/images/avatars/jane.jpg"
             },
             {
@@ -75,15 +75,15 @@
                 "avatar": "assets/images/avatars/garry.jpg"
             },
             {
-                "name": "Vincent Munoz",
+                "name": "Mehdi Ismail",
                 "avatar": "assets/images/avatars/vincent.jpg"
             },
             {
-                "name": "Alice Freeman",
+                "name": "Joe Ghumais",
                 "avatar": "assets/images/avatars/alice.jpg"
             },
             {
-                "name": "Andrew Green",
+                "name": "Ahmed Kalis",
                 "avatar": "assets/images/avatars/andrew.jpg"
             }
         ]

@@ -53,11 +53,11 @@
             "card": {
                 "template": "app/core/directives/ms-card/templates/template-5/template-5.html",
                 "title": "Friends",
-                "event": "Alice Freeman is now following you",
+                "event": "Joe Ghumais is now following you",
                 "media": {
                     "image": {
                         "src": "assets/images/avatars/alice.jpg",
-                        "alt": "Alice Freeman"
+                        "alt": "Joe Ghumais"
                     }
                 }
             },

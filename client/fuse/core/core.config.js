@@ -13,12 +13,19 @@ import './core.module.js';
             var Flow = require('ng-flow/dist/ng-flow-standalone.js');
             return new Flow(opts)
          }
-       });
+       })
+      //  .config(function (timerFactoryProvider) {
+      //    timerFactoryProvider.factory = function (opts) {
+      //      var humanizeDuration = require('humanize-duration');
+      //      return new humanizeDuration(opts)
+      //   }
+      // })
+       ;
 
 
 
     /** @ngInject */
-    function config($ariaProvider, $logProvider, msScrollConfigProvider, $translateProvider, fuseConfigProvider)
+    function config($ariaProvider, $logProvider, uiGmapGoogleMapApiProvider, msScrollConfigProvider, $translateProvider, fuseConfigProvider)
     {
         // Enable debug logging
         $logProvider.debugEnabled(true);
@@ -30,6 +37,14 @@ import './core.module.js';
         });
         $translateProvider.preferredLanguage('en');
         $translateProvider.useSanitizeValueStrategy('sanitize');
+
+        // uiGmapgoogle-maps configuration
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyBW4ItjG2AliSW34mMvRRCNiuiPMJpoFzc',
+            v        : '3.exp',
+            libraries: 'weather,geometry,visualization'
+        });
+
 
         /*eslint-disable */
 

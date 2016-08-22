@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "name": "Alice Freeman",
+      "name": "Joe Ghumais",
       "avatar": "assets/images/avatars/alice.jpg",
       "position": "Software Engineer",
       "email": "a.freeman@mail.com",
@@ -36,7 +36,7 @@
       "phone": "1-647-91-46"
     },
     {
-      "name": "Vincent Munoz",
+      "name": "Mehdi Ismail",
       "avatar": "assets/images/avatars/vincent.jpg",
       "position": "Junior Designer",
       "email": "v.munoz@mail.com",
