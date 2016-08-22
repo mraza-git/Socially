@@ -16,7 +16,7 @@
                         md-component-id="left-sidenav"
                         ms-sidenav-helper
                         layout="column">
-                        <div ng-include="client/foc-apps/chat/sidenavs/left/left-sidenav.html">
+                        <div ng-include="'templates/chat/sidenavs/left/left-sidenav.html'">
 
                         </div>
             </md-sidenav>
@@ -170,7 +170,10 @@
             <!-- RIGHT SIDENAV -->
             <md-sidenav class="sidenav right-sidenav md-sidenav-right" layout="column"
                         md-component-id="right-sidenav"
-                        ms-sidenav-helper ng-include="client/foc-apps/chat/sidenavs/right/right-sidenav.html">
+                        ms-sidenav-helper>
+                        <div ng-include="'templates/chat/sidenavs/right/right-sidenav.html'">
+
+                        </div>
 
             </md-sidenav>
             <!-- / RIGHT SIDENAV -->

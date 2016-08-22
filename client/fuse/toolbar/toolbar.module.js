@@ -10,7 +10,7 @@ import {name as toolbarUser} from '../../../imports/focui/components/toolbaruser
     /** @ngInject */
     function config($translatePartialLoaderProvider)
     {
-        $translatePartialLoaderProvider.addPart('app/toolbar');
+        $translatePartialLoaderProvider.addPart("assets/locale/toolbar");
     }
 })();
 (function ()
@@ -66,18 +66,18 @@ import {name as toolbarUser} from '../../../imports/focui/components/toolbaruser
                 'code'       : 'en',
                 'flag'       : 'us'
             },
-            es: {
-                'title'      : 'Spanish',
-                'translation': 'TOOLBAR.SPANISH',
-                'code'       : 'es',
-                'flag'       : 'es'
+            ar: {
+                'title'      : 'Arabic',
+                'translation': 'TOOLBAR.ARABIC',
+                'code'       : 'ar',
+                'flag'       : 'ae'
             },
-            tr: {
-                'title'      : 'Turkish',
-                'translation': 'TOOLBAR.TURKISH',
-                'code'       : 'tr',
-                'flag'       : 'tr'
-            }
+            // tr: {
+            //     'title'      : 'Turkish',
+            //     'translation': 'TOOLBAR.TURKISH',
+            //     'code'       : 'tr',
+            //     'flag'       : 'tr'
+            // }
         };
 
         // Methods
@@ -155,7 +155,7 @@ import {name as toolbarUser} from '../../../imports/focui/components/toolbaruser
              */
             if ( lang.code !== 'en' )
             {
-                var message = 'Fuse supports translations through angular-translate module, but currently we do not have any translations other than English language. If you want to help us, send us a message through ThemeForest profile page.';
+                var message = 'Currently we support only English, we will be releasing Arabic soon.';
 
                 $mdToast.show({
                     template : '<md-toast id="language-message" layout="column" layout-align="center start"><div class="md-toast-content">' + message + '</div></md-toast>',
@@ -164,7 +164,7 @@ import {name as toolbarUser} from '../../../imports/focui/components/toolbaruser
                     parent   : '#content'
                 });
 
-                return;
+                
             }
 
             // Change the language

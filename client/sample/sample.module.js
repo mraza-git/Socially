@@ -40,16 +40,16 @@ function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, 
     //     weight: 1
     // });
 
-    msNavigationServiceProvider.saveItem('fuse.sample', {
-        title    : 'Sample',
-        icon     : 'icon-tile-four',
-        state    : 'app.sample',
-        /*stateParams: {
-            'param1': 'page'
-         },*/
-        translate: 'SAMPLE.SAMPLE_NAV',
-        weight   : 1
-    });
+    // msNavigationServiceProvider.saveItem('fuse.sample', {
+    //     title    : 'Sample',
+    //     icon     : 'icon-tile-four',
+    //     state    : 'app.sample',
+    //     /*stateParams: {
+    //         'param1': 'page'
+    //      },*/
+    //     translate: 'SAMPLE.SAMPLE_NAV',
+    //     weight   : 1
+    // });
 }
 
 

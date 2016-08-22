@@ -1,0 +1,14 @@
+{
+    "TOOLBAR": {
+        "TOGGLE_NAVIGATION": "تحول ملاحة",
+        "TOGGLE_NAVIGATION_FOLD": "تحول ملاحة ملف",
+        "TOGGLE_NAVIGATION_MODE": "تحول ملاحة أسلوب",
+        "SEARCH": "بحث",
+        "USER_SETTINGS": "عدادات المستخدم",
+        "TOGGLE_QUICK_PANEL": "لوحة سريعة تبديل",
+        "ENGLISH": "English",
+        "SPANISH": "Spanish",
+        "TURKISH": "Turkish",
+        "ARABIC": "العربية"
+    }
+}

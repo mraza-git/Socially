@@ -1,0 +1,272 @@
+{
+    "widget1": {
+        "ranges": {
+            "DY": "Yesterday",
+            "DT": "Today",
+            "DTM": "Tomorrow"
+        },
+        "currentRange": "DT",
+        "data": {
+            "label": "CONVERSION RATE",
+            "count": {
+                "DY": 21,
+                "DT": 25,
+                "DTM": 19
+            },
+            "extra": {
+                "label": "Lost Quotations",
+                "count": {
+                    "DY": 3,
+                    "DT": 7,
+                    "DTM": 8
+                }
+            }
+        },
+        "detail": "You can show some detailed information about this widget in here."
+    },
+    "widget2": {
+        "title": "Average Job Value (AED)",
+        "data": {
+            "label": "30 DAYS",
+            "count": "5,130",
+            "extra": {
+                "label": "Last year same time",
+                "count": 1500
+            }
+        },
+        "detail": "You can show some detailed information about this widget in here."
+    },
+    "widget3": {
+        "title": "Open Leads",
+        "data": {
+            "label": "Waiting for quotation",
+            "count": 101,
+            "extra": {
+                "label": "Last updated:",
+                "count": "13:14 PM"
+            }
+        },
+        "detail": "You can show some detailed information about this widget in here."
+    },
+    "widget4": {
+        "title": "Fixed Business till date (AED)",
+        "data": {
+            "label": "Approximate value",
+            "count": "250,355",
+            "extra": {
+                "label": "Current quarter ",
+                "count": "65,123"
+            }
+        },
+        "detail": "You can show some detailed information about this widget in here."
+    },
+    "widget5": {
+        "title": "Sales",
+        "ranges": {
+            "TW": "This Week",
+            "LW": "Last Week",
+            "2W": "2 Weeks Ago"
+        },
+        "mainChart": [
+            {
+                "key": "Sales",
+                "values": {
+                    "2W": [
+                        {"x": "Mon", "y": 9},
+                        {"x": "Tue", "y": 12},
+                        {"x": "Wed", "y": 9},
+                        {"x": "Thu", "y": 12},
+                        {"x": "Fri", "y": 7},
+                        {"x": "Sat", "y": 8},
+                        {"x": "Sun", "y": 16}
+                    ],
+                    "LW": [
+                        {"x": "Mon", "y": 12},
+                        {"x": "Tue", "y": 8},
+                        {"x": "Wed", "y": 7},
+                        {"x": "Thu", "y": 13},
+                        {"x": "Fri", "y": 7},
+                        {"x": "Sat", "y": 6},
+                        {"x": "Sun", "y": 10}
+                    ],
+                    "TW": [
+                        {"x": "Mon", "y": 11},
+                        {"x": "Tue", "y": 10},
+                        {"x": "Wed", "y": 8},
+                        {"x": "Thu", "y": 11},
+                        {"x": "Fri", "y": 8},
+                        {"x": "Sat", "y": 10},
+                        {"x": "Sun", "y": 17}
+                    ]
+                }
+            },
+            {
+                "key": "Lost Quotes",
+                "values": {
+                    "2W": [
+                        {"x": "Mon", "y": 37},
+                        {"x": "Tue", "y": 32},
+                        {"x": "Wed", "y": 39},
+                        {"x": "Thu", "y": 27},
+                        {"x": "Fri", "y": 18},
+                        {"x": "Sat", "y": 24},
+                        {"x": "Sun", "y": 20}
+                    ],
+                    "LW": [
+                        {"x": "Mon", "y": 37},
+                        {"x": "Tue", "y": 24},
+                        {"x": "Wed", "y": 51},
+                        {"x": "Thu", "y": 31},
+                        {"x": "Fri", "y": 29},
+                        {"x": "Sat", "y": 17},
+                        {"x": "Sun", "y": 31}
+                    ],
+                    "TW": [
+                        {"x": "Mon", "y": 42},
+                        {"x": "Tue", "y": 28},
+                        {"x": "Wed", "y": 43},
+                        {"x": "Thu", "y": 34},
+                        {"x": "Fri", "y": 20},
+                        {"x": "Sat", "y": 25},
+                        {"x": "Sun", "y": 22}
+                    ]
+                }
+            }
+        ]
+    },
+    "widget6": {
+        "title": "Top 5 Categories",
+        "ranges": {
+            "TW": "This Week",
+            "LW": "Last Week",
+            "2W": "2 Weeks Ago"
+        },
+        "mainChart": [
+            {
+                "label": "Wedding Photography",
+                "values": {
+                    "2W": 18,
+                    "LW": 17,
+                    "TW": 13
+                }
+            },
+            {
+                "label": "Kosha and Decorations",
+                "values": {
+                    "2W": 12,
+                    "LW": 14,
+                    "TW": 16
+                }
+            },
+            {
+                "label": "Catering",
+                "values": {
+                    "2W": 40,
+                    "LW": 36,
+                    "TW": 34
+                }
+            },
+            {
+                "label": "Lighting and Decorations",
+                "values": {
+                    "2W": 20,
+                    "LW": 23,
+                    "TW": 23
+                }
+            },
+            {
+                "label": "others",
+                "values": {
+                    "2W": 10,
+                    "LW": 12,
+                    "TW": 14
+                }
+            }
+        ],
+        "footerLeft": {
+            "title": "Total Sales",
+            "count": {
+                "2W": 487,
+                "LW": 526,
+                "TW": 594
+            }
+        },
+        "footerRight": {
+            "title": "Sales From Top 5 Categories",
+            "count": {
+                "2W": 193,
+                "LW": 260,
+                "TW": 287
+            }
+        }
+    },
+    "widget7": {
+        "title": "Latest Customers",
+        "ranges": {
+            "T": "Today",
+            "TM": "Tomorrow"
+        },
+        "customers": {
+            "T": [
+                {
+                    "name": "Muhammad Abbas",
+                    "location": "Dubai"
+                },
+                {
+                    "name": "Usman Gul",
+                    "location": "Dubai"
+                },
+                {
+                    "name": "Junaid Ahmed",
+                    "location": "Abu Dhabi"
+                },
+                {
+                    "name": "Farhan Ahmed",
+                    "location": "Oman"
+                },
+                {
+                    "name": "Samad Mustafa",
+                    "location": "Fujairah"
+                },
+                {
+                    "name": "Asad Cambias",
+                    "location": "Dubai"
+                },
+                {
+                    "name": "Urooj Iqbal",
+                    "location": "Sharjah"
+                }
+            ],
+            "TM": [
+                {
+                    "name": "Musab Muhammad",
+                    "location": "Dubai"
+                },
+                {
+                    "name": "Tyson Marshall",
+                    "location": "Sharjah"
+                },
+                {
+                    "name": "Reyna Preece",
+                    "location": "Sharjah"
+                },
+                {
+                    "name": "Mariam Ahmed",
+                    "location": "Ajman"
+                },
+                {
+                    "name": "Sami Hussain",
+                    "location": "Sharjah"
+                },
+                {
+                    "name": "Mughis Munawwar",
+                    "location": "Dubai"
+                },
+                {
+                    "name": "Hafsa Khan",
+                    "location": "Dubai"
+                }
+            ]
+        }
+    }
+}

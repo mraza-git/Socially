@@ -23,6 +23,16 @@ class FocNavMenuService {
       },*/
       weight   : 1
     });
+    this.msNavigationService.saveItem('Admin.Categories', {
+      title    : 'Categories',
+      icon     : 'icon-setting',
+      state    : 'app.categorylist',
+      /*stateParams: {
+      'param1': 'page'
+      },*/
+      weight   : 2
+    });
+
   }
   setSupplierNavMenus(){
     // Delete Admin Menus if exists

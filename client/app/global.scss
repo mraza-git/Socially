@@ -16,6 +16,17 @@
 @import '../foc-apps/profile/tabs/about/about';
 @import '../foc-apps/profile/tabs/photos-videos/photos-videos';
 @import '../foc-apps/profile/tabs/timeline/timeline';
+@import '../foc-apps/contacts/contacts.scss';
+@import '../foc-apps/todo/dialogs/task/task-dialog.scss';
+// @import '../foc-apps/gantt-chart/dialogs/add-edit/_add-edit-dialog.scss';
+// @import '../foc-apps/gantt-chart/sidenavs/settings/_settings-sidenav.scss';
+// @import '../foc-apps/gantt-chart/_gantt-chart.scss';
+
+
+@import '../foc-apps/dashboards/project/_dashboard-project.scss';
+@import '../foc-apps/dashboards/analytics/_dashboard-analytics.scss';
+@import '../foc-apps/projects/_projects.scss';
+@import '../foc-apps/coming-soon/coming-soon.scss';
 
 
 @import '../fuse/core/scss/partials/plugins/angular-google-map';

@@ -42,32 +42,6 @@ import layoutWithToolbarTemplate from '../../fuse/core/layouts/content-with-tool
                   controller : 'MainController as vm'
                 }
             },
-            // views    :  {
-            //                 function($stateParams){
-            //                   if ($stateParams.userId){
-            //                     console.log("without content@app.pages_profile");
-            //                     return {
-            //                       'content@app.pages_profile': {
-            //                         template: template,
-            //                         controller : 'ProfileController as vm'
-            //                       },
-            //                       'main@' : {
-            //                         template: layoutWithoutToolbarTemplate,
-            //                         controller : 'MainController as vm'
-            //                       }
-            //                     }
-            //                   }
-            //                   else {
-            //                     console.log("content@app");
-            //                     return {
-            //                       'content@app': {
-            //                         template: template,
-            //                         controller : 'ProfileController as vm'
-            //                       }
-            //                     }
-            //                   }
-            //                 }
-            //               },
             resolve  : {
                 Timeline    : function (msApi)
                 {
@@ -87,7 +61,7 @@ import layoutWithToolbarTemplate from '../../fuse/core/layouts/content-with-tool
         });
 
         // Translation
-        $translatePartialLoaderProvider.addPart('app/main/pages/profile');
+        $translatePartialLoaderProvider.addPart('assets/locale/profile');
 
         // Api
         msApiProvider.register('profile.timeline', ['app/data/profile/timeline.json']);
@@ -95,7 +69,7 @@ import layoutWithToolbarTemplate from '../../fuse/core/layouts/content-with-tool
         msApiProvider.register('profile.photosVideos', ['app/data/profile/photos-videos.json']);
 
         // Navigation
-        msNavigationServiceProvider.saveItem('pages.profile', {
+        msNavigationServiceProvider.saveItem('profile', {
             title : 'Profile',
             icon  : 'icon-account',
             state : 'app.pages_profile({userId:""})',

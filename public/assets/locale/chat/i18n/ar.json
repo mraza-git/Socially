@@ -1,0 +1,23 @@
+{
+    "CHAT": {
+        "CHAT_SEARCH_PLACEHOLDER": "بحث أو بدء محادثة جديدة",
+        "CONTACTS_SEARCH_PLACEHOLDER": "البحث اتصال",
+        "APP_TITLE": "تطبيق الرسائل",
+        "START_MESSAGE":"حدد اتصال لبدء محادثة",
+        "CONTACT_INFO":"معلومات الاتصال",
+        "CLEAR_MESSAGES":"محو الرسائل",
+        "REPLY_PLACEHOLDER":"لإرسال رسالة ENTER نوع ثم اضغط",
+        "SEND_MESSAGE":"إرسال رسالة",
+        "STATUS_ONLINE":"متاح",
+        "STATUS_AWAY":"بعيدا",
+        "STATUS_DO_NOT_DISTURB":"لا تقاطع",
+        "STATUS_OFFLINE":"حاليا",
+        "PROFILE":"الملف الشخصي",
+        "LOGOUT":"خروج",
+        "NO_RESULTS":"..لا نتائج",
+        "CHATS":"محادثة",
+        "CONTACTS":"اتصالات",
+        "ENTER_MOOD_MESSAGE":"كتابة رسالة المزاج",        
+        "MOOD":"مزاج"
+    }
+}
