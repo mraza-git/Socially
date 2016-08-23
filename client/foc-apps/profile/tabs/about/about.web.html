@@ -2,19 +2,29 @@
 
     <div class="about" layout="column" flex="100" flex-gt-sm="50" flex-gt-md="65" >
         <div class="profile-box info-box general md-whiteframe-1dp" layout="column">
+            <form editable-form name="editableFormGeneral" onaftersave="about.saveUser()">
             <header class="md-accent-bg">
                 <div class="title" translate="PROFILE.GENERAL_INFORMATION">General Information</div>
+
+                   <!-- Edit Button General Information -->
+                  <md-button class="general-edit"
+                      ng-click="editableFormGeneral.$show()"
+                      aria-label="contacts button"
+                      ng-show="!editableFormGeneral.$visible&&about.ofOwner">
+                      <md-icon md-font-icon="icon-pencil"> </md-icon>
+                  </md-button>
+                  <!-- buttons to submit / cancel form -->
+                  <md-button class="general-edit"
+                      type = 'submit'
+                      aria-label="contacts button"
+                      ng-disabled="editableFormGeneral.$waiting"
+                      ng-show="editableFormGeneral.$visible">
+                      <md-icon md-font-icon="icon-content-save"> </md-icon>
+                  </md-button>
+
             </header>
 
             <div class="content">
-              <form editable-form name="editableForm" onaftersave="about.saveUser()">
-
-                <md-button class="md-primary md-fab md-fab-bottom-right"
-                    ng-click="editableForm.$show()"
-                    aria-label="contacts button"
-                    ng-show="!editableForm.$visible&&about.ofOwner">
-                    <md-icon md-font-icon="icon-pencil"> </md-icon>
-                </md-button>
 
                 <div class="info-line">
                     <div class="title" translate="PROFILE.GENDER">Gender</div>
@@ -29,54 +39,82 @@
 
                 <div class="info-line">
                     <div class="title" translate="PROFILE.BIRTHDAY">Birthday</div>
-                    <a editable-date="about.user.profile.birthday" e-label="Birthday">{{ about.user.profile.birthday | date }}</a>
+                    <md-datepicker
+                        ng-model="about.user.profile.birthday"
+                        ng-show="editableFormGeneral.$visible"
+                        md-placehoulder="Date of Birth">
+                    </md-datepicker>
+                    <div ng-hide="editableFormGeneral.$visible" style="border:0 !important;">
+                        {{ about.user.profile.birthday | date }}
+                    </div>
                 </div>
 
                 <div class="info-line">
-                    <div class="title" translate="PROFILE.LOCATIONS">Locations</div>
-                    <div class="info location" ng-repeat="location in vm.about.general.locations">
-                        <span>{{location}}</span>
+                    <div ng-hide="editableFormGeneral.$visible" class="title" translate="PROFILE.LOCATIONS">Locations</div>
+                    <div class="info location">
+                        <a editable-text="about.user.profile.locations" e-label="Locations">
+                        <pre>{{ about.user.profile.address.locations || 'no description' }}</pre>
+                        </a>
                         <md-icon md-font-icon="icon-map-marker" class="s16"></md-icon>
                     </div>
                 </div>
 
                 <div class="info-line">
-                    <div class="title" translate="PROFILE.ABOUT_ME">About Me</div>
+                    <div ng-hide="editableFormGeneral.$visible" class="title" translate="PROFILE.ABOUT_ME">About Me</div>
                     <div class="info">
-                      <a editable-textarea="about.user.profile.aboutUs" e-rows="7" e-cols="60">
+                      <a editable-text="about.user.profile.aboutUs" e-label="About Us" >
                         <pre>{{ about.user.profile.aboutUs || 'no description' }}</pre>
                       </a>
                     </div>
                 </div>
 
 
-               <!-- buttons to submit / cancel form -->
-               <md-button class="md-accent md-fab md-fab-top-right"
-                   type = 'submit'
-                   aria-label="contacts button"
-                   ng-disabled="editableForm.$waiting"
-                   ng-show="editableForm.$visible">
-                   <md-icon md-font-icon="icon-content-save"> </md-icon>
-               </md-button>
 
-              </form>
+
+
             </div>
+          </form>
         </div>
 
         <div class="profile-box info-box work md-whiteframe-1dp" layout="column">
+          <form editable-form name="editableFormWork" onaftersave="about.saveUser()">
             <header class="md-accent-bg">
                 <div class="title" translate="PROFILE.WORK">Work</div>
-            </header>
+
+                 <!-- Edit Button General Information -->
+                <md-button class="work-edit"
+                    ng-click="editableFormWork.$show()"
+                    aria-label="contacts button"
+                    ng-show="!editableFormWork.$visible&&about.ofOwner">
+                    <md-icon md-font-icon="icon-pencil"> </md-icon>
+                </md-button>
+                <!-- buttons to submit / cancel form -->
+                <md-button class="work-edit"
+                    type = 'submit'
+                    aria-label="contacts button"
+                    ng-disabled="editableFormWork.$waiting"
+                    ng-show="editableFormWork.$visible">
+                    <md-icon md-font-icon="icon-content-save"> </md-icon>
+                </md-button>
+                </header>
 
             <div class="content">
                 <div class="info-line">
-                    <div class="title" translate="PROFILE.OCCUPATION">Occupation</div>
-                    <div class="info">{{vm.about.work.occupation}}</div>
+                    <div  ng-hide="editableFormWork.$visible" class="title" translate="PROFILE.OCCUPATION">Occupation</div>
+                    <div class="info">
+                        <a editable-text="about.user.profile.occupation" e-label="Occupation">
+                        <pre>{{ about.user.profile.address.occupation || 'no description' }}</pre>
+                        </a>
+                        </div>
                 </div>
 
                 <div class="info-line">
-                    <div class="title" translate="PROFILE.SKILLS">Skills</div>
-                    <div class="info">{{vm.about.work.skills}}</div>
+                    <div  ng-hide="editableFormWork.$visible" class="title" translate="PROFILE.SKILLS">Skills</div>
+                    <div class="info">
+                        <a editable-text="about.user.profile.skills" e-label="Skills">
+                        <pre>{{ about.user.profile.address.skills || 'no description' }}</pre>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="info-line">
@@ -89,38 +127,89 @@
                     </table>
                 </div>
             </div>
+          </form>
         </div>
 
         <div class="profile-box info-box contact md-whiteframe-1dp" layout="column">
+          <form editable-form name="editableFormContact" onaftersave="about.saveUser()">
             <header class="md-accent-bg">
                 <div class="title" translate="PROFILE.CONTACT">Contact</div>
+
+                     <!-- Edit Button General Information -->
+                    <md-button class="contact-edit"
+                        ng-click="editableFormContact.$show()"
+                        aria-label="contacts button"
+                        ng-show="!editableFormContact.$visible&&about.ofOwner">
+                        <md-icon md-font-icon="icon-pencil"> </md-icon>
+                    </md-button>
+                    <!-- buttons to submit / cancel form -->
+                    <md-button class="contact-edit"
+                        type = 'submit'
+                        aria-label="contacts button"
+                        ng-disabled="editableFormContact.$waiting"
+                        ng-show="editableFormContact.$visible">
+                        <md-icon md-font-icon="icon-content-save"> </md-icon>
+                    </md-button>
+
             </header>
             <div class="content">
                 <div class="info-line">
                     <div class="title" translate="PROFILE.ADDRESS">Address</div>
-                    <div class="info">{{vm.about.contact.address}}</div>
+                        <div ng-hide="editableFormContact.$visible"  class="info">Line 1</div>
+                        <div>
+                            <a editable-text="about.user.profile.address.line1" e-label="Line 1">
+                            <pre>{{ about.user.profile.address.line1 || 'no description' }}</pre><br>
+                            </a>
+                        </div>
+                        <div ng-hide="editableFormContact.$visible"  class="info">Line 2</div>
+                        <div>
+                            <a editable-text="about.user.profile.address.line1" e-label="Line 2">
+                            <pre>{{ about.user.profile.address.line2 || 'no description' }}</pre><br>
+                            </a>
+                        </div>
+                        <div ng-hide="editableFormContact.$visible"  class="info">City</div>
+                        <div>
+                            <a editable-text="about.user.profile.address.city" e-label="City">
+                            <pre>{{ about.user.profile.address.city || 'no description' }}</pre><br>
+                            </a>
+                        </div>
+                        <div ng-hide="editableFormContact.$visible"  class="info">Country</div>
+                        <div>
+                            <a editable-text="about.user.profile.address.country" e-label="Country">
+                            <pre>{{ about.user.profile.address.country || 'no description' }}</pre><br>
+                            </a>
+                        </div>
                 </div>
                 <div class="info-line">
-                    <div class="title" translate="PROFILE.TEL">Tel.</div>
-                    <div class="info" ng-repeat="tel in vm.about.contact.tel">
-                        <span>{{tel}}</span>
+                    <div ng-hide="editableFormContact.$visible" class="title" translate="PROFILE.TEL">Tel.</div>
+                    <div class="info">
+                        <a editable-text="about.user.profile.telephone" e-label="Tel.">
+                        <pre>{{ about.user.profile.address.telephone || 'no description' }}</pre>
+                        </a>
                     </div>
                 </div>
                 <div class="info-line">
-                    <div class="title" translate="PROFILE.WEBSITE">Website</div>
-                    <div class="info" ng-repeat="website in vm.about.contact.websites">
-                        <span>{{website}}</span>
+                    <div ng-hide="editableFormContact.$visible" class="title" translate="PROFILE.WEBSITE">Website</div>
+                    <div class="info">
+                        <a editable-text="about.user.profile.website" e-label="Website">
+                        <pre>{{ about.user.profile.address.website || 'no description' }}</pre>
+                        </a>
                     </div>
                 </div>
                 <div class="info-line">
-                    <div class="title" translate="PROFILE.EMAILS">Emails</div>
-                    <div class="info" ng-repeat="email in vm.about.contact.emails">
-                        <span>{{email}}</span>
+                    <div ng-hide="editableFormContact.$visible" class="title" translate="PROFILE.EMAILS">Emails</div>
+                    <div class="info">
+                        <a editable-text="about.user.profile.email" e-label="Emails">
+                        <pre>{{ about.user.profile.address.email || 'no description' }}</pre>
+                        </a>
                     </div>
                 </div>
             </div>
+          </form>
         </div>
+
     </div>
+
 
     <div class="about-sidebar" layout="column" flex="100" flex-gt-sm="50" flex-gt-md="35">
         <div class="profile-box friends md-whiteframe-1dp" layout="column">

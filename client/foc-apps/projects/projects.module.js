@@ -110,7 +110,12 @@ import myQuoteTemplate from './views/myquote/myquote.html';
                     Product: function (msApi)
                     {
                         return msApi.resolve('e-commerce.product@get');
-                    }
+                    },
+                    Order   : function (msApi)
+                    {
+                        return msApi.resolve('e-commerce.order@get');
+                    },
+
                 },
                 bodyClass: 'e-commerce'
             })

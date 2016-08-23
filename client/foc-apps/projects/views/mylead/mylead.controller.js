@@ -8,11 +8,66 @@ import '../../projects.module.js';
         .controller('MyLeadController', MyLeadController);
 
     /** @ngInject */
-    function MyLeadController($document, $state, Product)
+    function MyLeadController($document, $state, Product, uiGmapGoogleMapApi, Order)
     {
         var vm = this;
 
         // Data
+
+        vm.order = Order.data;
+        vm.statuses = [
+          {
+              "id": 1,
+              "name": "Awaiting Quotation",
+              "color": "md-blue-500-bg"
+          },
+          {
+              "id": 2,
+              "name": "Awaiting Customer Response",
+              "color": "md-green-500-bg"
+          },
+          {
+              "id": 3,
+              "name": "Quoted",
+              "color": "md-orange-500-bg"
+          },
+          {
+              "id": 4,
+              "name": "Win",
+              "color": "md-purple-500-bg"
+          },
+          {
+              "id": 5,
+              "name": "Lost",
+              "color": "md-green-800-bg"
+          },
+          {
+              "id": 6,
+              "name": "Canceled",
+              "color": "md-pink-500-bg"
+          },
+          {
+              "id": 7,
+              "name": "Job in Progress",
+              "color": "md-red-500-bg"
+          },
+          {
+              "id": 8,
+              "name": "Completed",
+              "color": "md-red-900-bg"
+          },
+          {
+              "id": 9,
+              "name": "Awaiting Payment",
+              "color": "md-purple-300-bg"
+          },
+          {
+              "id": 10,
+              "name": "Payment Recieved",
+              "color": "md-blue-500-bg"
+          },
+
+        ];
         vm.taToolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
@@ -41,17 +96,47 @@ import '../../projects.module.js';
         vm.fileAdded = fileAdded;
         vm.upload = upload;
         vm.fileSuccess = fileSuccess;
+        vm.updateStatus = updateStatus;
 
         //////////
 
         init();
+
+        // Normally, you would need Google Maps Geocoding API
+        // to convert addresses into latitude and longitude
+        // but because Google's policies, we are faking it for
+        // the demo
+        uiGmapGoogleMapApi.then(function (maps)
+        {
+            vm.shippingAddressMap = {
+                center: {
+                    latitude : -34.397,
+                    longitude: 150.644
+                },
+                marker: {
+                    id: 'shippingAddress'
+                },
+                zoom  : 8
+            };
+
+            vm.invoiceAddressMap = {
+                center: {
+                    latitude : -34.397,
+                    longitude: 150.644
+                },
+                marker: {
+                    id: 'invoiceAddress'
+                },
+                zoom  : 8
+            };
+        });
 
         /**
          * Initialize
          */
         function init()
         {
-            // Select the correct product from the data.
+            // Select the correct order from the data.
             // This is an unnecessary step for a real world app
             // because normally, you would request the product
             // with its id and you would get only one product.
@@ -60,6 +145,17 @@ import '../../projects.module.js';
             // and then hand picking the requested product from
             // it.
             var id = $state.params.id;
+
+            for ( var i = 0; i < vm.order.length; i++ )
+            {
+                if ( vm.order[i].id === parseInt(id) )
+                {
+                    vm.order = vm.order[i];
+                    break;
+                }
+            }
+            // END - Select the correct product from the data
+
 
             for ( var i = 0; i < vm.product.length; i++ )
             {
@@ -71,6 +167,11 @@ import '../../projects.module.js';
             }
             // END - Select the correct product from the data
         }
+
+
+
+
+
 
         /**
          * Go to products page
@@ -169,6 +270,34 @@ import '../../projects.module.js';
                     media.type = 'image';
                 }
             });
+        }
+
+        /**
+         * Update order status
+         *
+         * @param id
+         */
+        function updateStatus(id)
+        {
+            if ( !id )
+            {
+                return;
+            }
+
+            for ( var i = 0; i < vm.statuses.length; i++ )
+            {
+                if ( vm.statuses[i].id === parseInt(id) )
+                {
+                    vm.order.status.unshift({
+                        id   : vm.statuses[i].id,
+                        name : vm.statuses[i].name,
+                        color: vm.statuses[i].color,
+                        date : moment().format('YYYY/MM/DD HH:mm:ss')
+                    });
+
+                    break;
+                }
+            }
         }
     }
 })();
