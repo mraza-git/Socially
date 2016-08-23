@@ -38,51 +38,160 @@
 
         <md-tabs md-dynamic-height>
 
-            <md-tab>
-                <md-tab-label>
-                    <span translate="EC.BASIC_INFO">Basic Info</span>
-                </md-tab-label>
+                      <md-tab>
+                          <md-tab-label>
+                              <span translate="EC.LEAD_DETAILS">Lead Details</span>
+                          </md-tab-label>
 
-                <md-tab-body>
-                    <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
-                        <form>
-                            <md-input-container class="md-block">
-                                <label translate="EC.PRODUCT_NAME">Product Name</label>
-                                <input type="text" ng-model="vm.product.name">
-                            </md-input-container>
+                          <md-tab-body>
+                              <div class="product-detail-form-container customer md-background-bg md-whiteframe-1dp">
+                                  <div class="pb-16" layout="row" layout-align="start center">
+                                      <md-icon md-font-icon="icon-account" class="m-0 mr-16"></md-icon>
+                                      <div class="h2 secondary-text" translate="EC.CUSTOMER">Customer</div>
+                                  </div>
 
-                            <h3 class="secondary-text" translate="EC.PRODUCT_DESCRIPTION">Product Description</h3>
-                            <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.product.description" class="pb-32"></text-angular>
+                                  <div class="customer">
+                                      <table class="simple" ms-responsive-table>
+                                          <thead>
+                                              <tr>
+                                                  <th translate="EC.NAME">Name</th>
+                                                  <th translate="EC.EMAIL">Email</th>
+                                                  <th translate="EC.PHONE">Phone</th>
+                                                  <th translate="EC.COMPANY">Company</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>
+                                                      <div layout="row" layout-align="start center">
+                                                          <img class="avatar" ng-src="{{vm.order.customer.avatar}}">
+                                                          <span class="name text-nowrap">{{vm.order.customer.firstName}} {{vm.order.customer.lastName}}</span>
+                                                      </div>
+                                                  </td>
+                                                  <td>
+                                                      <span class="email">{{vm.order.customer.email}}</span>
+                                                  </td>
+                                                  <td>
+                                                      <span class="phone">{{vm.order.customer.phone}}</span>
+                                                  </td>
+                                                  <td>
+                                                      <span class="phone">{{vm.order.customer.company}}</span>
+                                                  </td>
+                                                  <td></td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
 
-                            <md-input-container class="md-block">
-                                <label translate="EC.CATEGORIES">Categories</label>
-                                <md-select ng-model="vm.product.categories"
-                                           md-on-open="vm.onCategoriesSelectorOpen()"
-                                           md-on-close="vm.onCategoriesSelectorClose()" multiple>
-                                    <md-select-header>
-                                        <input type="search" class="md-text"
-                                               ng-model="vm.categoriesSelectFilter" placeholder="Search for a category">
-                                    </md-select-header>
-                                    <md-optgroup>
-                                        <md-option ng-value="category"
-                                                   ng-repeat="category in vm.product.categories | filter:vm.categoriesSelectFilter">
-                                            {{category}}
-                                        </md-option>
-                                    </md-optgroup>
-                                </md-select>
-                            </md-input-container>
+                                      <md-tabs class="addresses">
+                                          <md-tab>
+                                              <md-tab-label>
+                                                  <span translate="EC.SHIPPING_ADDRESS">Shipping Address</span>
+                                              </md-tab-label>
+                                              <md-tab-body>
+                                                  <div class="address">{{vm.order.customer.shippingAddress}}</div>
+                                                  <ui-gmap-google-map center="vm.shippingAddressMap.center"
+                                                                      zoom="vm.shippingAddressMap.zoom">
+                                                      <ui-gmap-marker coords="vm.shippingAddressMap.center"
+                                                                      idkey="vm.shippingAddressMap.marker.id"></ui-gmap-marker>
+                                                  </ui-gmap-google-map>
+                                              </md-tab-body>
+                                          </md-tab>
+                                          <md-tab>
+                                              <md-tab-label>
+                                                  <span translate="EC.INVOICE_ADDRESS">Invoice Address</span>
+                                              </md-tab-label>
+                                              <md-tab-body>
+                                                  <div class="address">{{vm.order.customer.invoiceAddress}}</div>
+                                                  <ui-gmap-google-map center="vm.invoiceAddressMap.center"
+                                                                      zoom="vm.invoiceAddressMap.zoom">
+                                                      <ui-gmap-marker coords="vm.invoiceAddressMap.center"
+                                                                      idkey="vm.invoiceAddressMap.marker.id"></ui-gmap-marker>
+                                                  </ui-gmap-google-map>
+                                              </md-tab-body>
+                                          </md-tab>
+                                      </md-tabs>
 
-                            <h3 class="tags secondary-text" translate="EC.TAGS">Tags</h3>
-                            <md-chips ng-model="vm.product.tags"
-                                      placeholder="Enter a tag"
-                                      delete-button-label="Remove Tag"
-                                      delete-hint="Press delete to remove tag"
-                                      secondary-placeholder="+Tag">
-                            </md-chips>
-                        </form>
-                    </div>
-                </md-tab-body>
-            </md-tab>
+                                  </div>
+                              </div>
+
+                              <div class="product-detail-form-container status md-background-bg md-whiteframe-1dp">
+                                  <div class="pb-16" layout="row" layout-align="start center">
+                                      <md-icon md-font-icon="icon-clock" class="m-0 mr-16"></md-icon>
+                                      <div class="h2 secondary-text" translate="EC.ORDER_STATUS">Order Status</div>
+                                  </div>
+                                  <table class="simple" ms-responsive-table>
+                                      <thead>
+                                          <tr>
+                                              <th translate="EC.STATUS">Status</th>
+                                              <th translate="EC.UPDATED_ON">Updated On</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr ng-repeat="status in vm.order.status">
+                                              <td>
+                                                  <span class="status {{status.color}}">{{status.name}}</span>
+                                              </td>
+                                              <td>
+                                                  {{status.date}}
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+
+                                  <div class="update-status" layout="row" layout-align="start center">
+                                      <md-input-container flex>
+                                          <label>Select a status</label>
+                                          <md-select ng-model="vm.newStatus">
+                                              <md-option ng-repeat="status in vm.statuses" value="{{status.id}}">
+                                                  {{status.name}}
+                                              </md-option>
+                                          </md-select>
+                                      </md-input-container>
+
+                                      <md-button class="md-raised md-accent" ng-click="vm.updateStatus(vm.newStatus)"
+                                                 ng-disabled="!vm.newStatus">
+                                          Update Status
+                                      </md-button>
+                                  </div>
+                              </div>
+
+                              <div class="product-detail-form-container payments md-background-bg md-whiteframe-1dp">
+                                  <div class="pb-16" layout="row" layout-align="start center">
+                                      <md-icon md-font-icon="icon-cash" class="m-0 mr-16"></md-icon>
+                                      <div class="h2 secondary-text" translate="EC.PAYMENT">Payment</div>
+                                  </div>
+                                  <table class="simple" ms-responsive-table>
+                                      <thead>
+                                          <tr>
+                                              <th translate="EC.TRANSACTION_ID">TransactionID</th>
+                                              <th translate="EC.PAYMENT_METHOD">Payment Method</th>
+                                              <th translate="EC.AMOUNT">Amount</th>
+                                              <th translate="EC.DATE">Date</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr ng-repeat="payment in vm.order.payment">
+                                              <td>
+                                                  {{payment.transactionId}}
+                                              </td>
+                                              <td>
+                                                  {{payment.method}}
+                                              </td>
+                                              <td>
+                                                  {{payment.amount}}
+                                              </td>
+                                              <td>
+                                                  {{payment.date}}
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+
+
+                          </md-tab-body>
+                      </md-tab>
+
 
             <md-tab>
                 <md-tab-label>
