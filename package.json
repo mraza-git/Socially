@@ -25,7 +25,7 @@
     "rules": {}
   },
   "dependencies": {
-    "angular": "^1.5.7",
+    "angular": "1.5.7",
     "angular-animate": "^1.5.3",
     "angular-aria": "^1.5.8",
     "angular-chart.js": "0.10.2",
