@@ -6,6 +6,10 @@ import webTemplate from './photos-videos.web.html';
 import mobileTemplate from './photos-videos.mobile.html';
 const template = Meteor.isCordova? mobileTemplate : webTemplate;
 
+class PhotosVideos{
+  
+
+}
 
 const name = 'photosVideos';
 
@@ -14,5 +18,10 @@ export default angular.module(name, [
   angularMeteor
 ]).component(name, {
   template,
-  controllerAs: name
+  controllerAs: name,
+  controller: PhotosVideos,
+  bindings:{
+    photos: '<'
+  }
+
 });
