@@ -30,6 +30,38 @@
 
     .product-detail-form-container {
         padding: 24px;
+        
+        &.customer {
+
+            table {
+                margin-bottom: 16px;
+            }
+
+            .addresses {
+
+                md-tab-content {
+                    padding: 16px;
+                }
+
+                .address {
+                    font-size: 16px;
+                    padding: 8px 0 16px 0;
+                }
+            }
+        }
+
+        &.status {
+
+            .status {
+                white-space: nowrap;
+                padding: 4px 8px;
+                border-radius: 2px;
+            }
+
+            .update-status {
+                margin-top: 16px;
+            }
+        }
 
         #product-image-uploader {
             position: relative;

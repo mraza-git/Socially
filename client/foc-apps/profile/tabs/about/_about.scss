@@ -8,10 +8,18 @@
 
             .general {
 
-                .contacts-button {
-                    position: absolute;
-                    bottom: 50px;
-                    right: 4px;
+                .general-edit, .work-edit, .contact-edit {
+                  float: right;
+                  min-height: 0px;
+                  min-width: 0px;
+                  position: relative;
+                  padding: 0;
+                  margin: 0;
+                  line-height: 0;
+
+                      md-icon {
+                        color : white;
+                      }
                 }
 
                 .location {
@@ -24,6 +32,20 @@
 
             .work {
 
+              .work-edit {
+                float: right;
+                min-height: 0px;
+                min-width: 0px;
+                position: relative;
+                padding: 0;
+                margin: 0;
+                line-height: 0;
+
+                    md-icon {
+                      color : white;
+                    }
+              }
+
                 .job {
 
                     .company {
@@ -35,6 +57,23 @@
                         color: rgba(0, 0, 0, 0.54);
                     }
                 }
+            }
+            .contact {
+
+              .contact-edit {
+                float: right;
+                min-height: 0px;
+                min-width: 0px;
+                position: relative;
+                padding: 0;
+                margin: 0;
+                line-height: 0;
+
+                    md-icon {
+                      color : white;
+                    }
+              }
+
             }
         }
 
@@ -86,7 +125,7 @@
         }
     }
 }
-
+form { margin: 0 !important;}
 // RESPONSIVE
 @media screen and (max-width: $layout-breakpoint-sm) {
 
@@ -101,3 +140,9 @@
     }
 
 }
+.md-datepicker-input-container.md-datepicker-focused {
+    border-bottom-width: 1px;
+  }
+input.md-datepicker-input {
+    border: 0 !important;
+  }
