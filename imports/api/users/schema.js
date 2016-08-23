@@ -43,19 +43,20 @@ Schema.UserProfile = new SimpleSchema({
     type:String,
     optional:true
   },
-  addresses:{
+  locations:{
     type: [Object],
-    optional:true
+    optional:true,
+
   },
-  "addresses.$.title":{
+  "locations.$.title":{
     type: String,
     optional:true
   },
-  "addresses.$.latitude":{
+  "locations.$.latitude":{
     type: Float32Array,
     optional:true
   },
-  "addresses.$.longitude":{
+  "locations.$.longitude":{
     type: Float32Array,
     optional:true
   },
@@ -64,19 +65,31 @@ Schema.UserProfile = new SimpleSchema({
     optional:true,
     blackbox:true
   },
-  // "userStatus.title":{
-  //   type:String,
-  //   optional:true
-  // },
-  // "userStatus.icon":{
-  //   type:String,
-  //   optional:true
-  // },
-  // "userStatus.color":{
-  //   type:String,
-  //   optional:true
-  // },
-
+  aboutUs:{
+    type: String,
+    optional:true,
+  },
+  address:{
+    type: Object,
+    optional:true,
+    blackbox:true,
+  },
+  telephone:{
+    type: String,
+    optional:true,
+  },
+  email:{
+  type: String,
+  optional:true,
+  },
+  occupation:{
+  type: String,
+  optional:true,
+  },
+  skills:{
+  type: String,
+  optional:true,
+  },
 });
 
 Schema.User = new SimpleSchema({
