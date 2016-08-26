@@ -1,4 +1,4 @@
-var humanizeDuration = require("humanize-duration");
+
 import  'angular';
 import  'angular-meteor';
 import ngCookies from 'angular-cookies';
