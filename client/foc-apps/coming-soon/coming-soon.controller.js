@@ -14,7 +14,7 @@ import './coming-soon.module.js';
         var vm = this;
 
         // Data
-        vm.endTime = 1472975790000;
+        vm.endTime = 1475309532000;
 
         // Methods
 

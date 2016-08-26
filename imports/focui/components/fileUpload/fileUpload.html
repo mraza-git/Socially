@@ -1,0 +1,49 @@
+<div layout="column">
+  <div ngf-drop
+    ngf-select
+    ngf-change="fileUpload.addImage($files)"
+    ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+    class="drop-box"
+    ngf-multiple="false"
+    ngf-allow-dir="false"
+    ngf-accept="'image/*'"
+    ngf-drop-available="true"
+    ngf-resize = "{width: 1000}"
+    ngf-resize-if = "$width > 1000 || $height > 1000"
+    ng-hide="fileUpload.cropImgSrc">
+    <div>Click here to select image</div>
+    <div>
+      <strong>OR</strong>
+    </div>
+    <div>You can also drop image to here</div>
+  </div>
+  <div ng-if="fileUpload.cropImgSrc" layout="column" class="ng-crop">
+    <div>
+      <h3>Edit &amp; crop</h3>
+      <md-button ng-click="fileUpload.cropDone()" class="md-primary">
+        Crop Image
+      </md-button>
+      <md-button ng-click="fileUpload.reset()">
+        Cancel
+      </md-button>
+    </div>
+    <div ng-hide='fileUpload.cropIsDone'>
+      <div class="ng-crop-container" >
+        <img-crop
+        image="fileUpload.cropImgSrc"
+        result-image="fileUpload.myCroppedImage"
+        area-type="{{fileUpload.areaType || 'square'}}"
+        aspect-ratio = "fileUpload.cropSettings.aspectRatio || 1"
+        init-max-area = "true"
+        result-image-size="fileUpload.resultImageSize || 'max'">
+      </img-crop>      
+    </div>
+    </div>
+  </div>
+  <div layout="row" class="images-container-title" ng-show='fileUpload.cropIsDone'>
+    <div  class="file-image-container main-image" >
+      <img ng-src="{{fileUpload.croppedImage}}"/>
+      <md-icon md-font-icon="icon-pencil" style="left:10px;bottom:100px;" ng-click='fileUpload.cropNow()'></md-icon>
+    </div>
+  </div>
+</div>

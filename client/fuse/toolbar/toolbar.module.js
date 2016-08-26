@@ -164,7 +164,7 @@ import {name as toolbarUser} from '../../../imports/focui/components/toolbaruser
                     parent   : '#content'
                 });
 
-                
+
             }
 
             // Change the language

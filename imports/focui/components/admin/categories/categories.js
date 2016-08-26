@@ -4,6 +4,8 @@ import { Meteor } from 'meteor/meteor';
 import {Categories} from '../../../../api/categories/index';
 import utilsPagination from 'angular-utils-pagination';
 import "../../../../../client/fuse/core/core.module.js";
+import {name as CategoryAddButton} from './categoryAddButton/categoryAddButton';
+import {name as CategoryRemove} from './categoryRemove/categoryRemove';
 
 
 import webTemplate from './categories.web.html';
@@ -20,7 +22,13 @@ class CategoryList{
     this.helpers({
       categories(){
         return Categories.find();
-      }
+      },
+      isLoggedIn() {
+        return !!Meteor.userId();
+      },
+      currentUserId() {
+        return Meteor.userId();
+      },
     });
 
   }
@@ -34,6 +42,9 @@ export default angular.module(name, [
   angularMeteor,
   utilsPagination,
   'app.core',
+  CategoryAddButton,
+  CategoryRemove,
+
 ]).component(name, {
   template,
   controllerAs: name,

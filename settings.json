@@ -3,6 +3,7 @@
     "env": {
       "ROOT_URL": "http://fixondemo.meteorapp.com",
       "MONGO_URL": "mongodb://metuser:bmabbb2000@ds013206.mlab.com:13206/fixondemo"
-    } 
+      
+    }
    }
 }

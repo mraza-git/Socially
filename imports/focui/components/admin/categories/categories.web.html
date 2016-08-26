@@ -1,14 +1,29 @@
-<div>
-<strong>Categories</strong>
-<ul>
-  <li ng-repeat="cat in categoryList.categories">
-    
-    {{cat.name}}
-    <br>
-    {{cat.description}}
-    <br>
-  </li>
-</ul>
+<div layout="column" layout-padding>
 
+  <category-add-button ng-show="categoryList.isLoggedIn"></category-add-button>
 
-</div>
+  <div class="md-title mt-48">Categories List</div>
+  <div ng-repeat="cat in categoryList.categories">
+    <div class="template-3 p-16 teal-bg white-fg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="space-between">
+          <category-remove category='cat'></category-remove>
+            <div class="info">
+                <div class="title h1" >
+                    {{cat.name}}
+                </div>
+
+                <div class="subtitle h3 secondary-text" >
+                    {{cat.description}}
+                </div>
+            </div>
+
+            <div class="cta">
+                <md-button class="m-0"> Edit </md-button>
+            </div>
+        </div>
+        
+        <div class="media pl-16" style="width:100px;">
+            <img class="image" ng-src="{{cat.image.url}}" alt="{{cat.image.alt}}" >
+        </div>
+    </div>
+  </div>

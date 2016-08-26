@@ -1,0 +1,34 @@
+<div layout="column" layout-padding>
+  <md-input-container>
+    <label>
+      Category Name:
+    </label>
+    <input type="text" ng-model="categoryAdd.category.name" required/>
+  </md-input-container>
+  <md-input-container>
+    <label>
+      Description:
+    </label>
+    <input type="text" ng-model="categoryAdd.category.description"/>
+  </md-input-container>
+  <div flex>
+    <md-checkbox ng-model="categoryAdd.category.publish" aria-label="Publish">
+      Publish Category?
+    </md-checkbox>
+    <md-input-container>
+      <label>
+        Publish Date:
+      </label>
+
+    </md-input-container>
+  </div>
+  <div flex>
+    <md-button ng-disabled="!categoryAdd.category.name" ng-click="categoryAdd.add()" class="md-raised">Add Category</md-button>
+  </div>
+  <file-upload
+    ok-to-save="categoryAdd.okToSave"
+    done="categoryAdd.save($event)"
+    crop-settings = "{aspectRatio: 1, resultImageSize: 'max', crop:true, areaType:'square'}"
+    >
+  </file-upload>
+</div>
