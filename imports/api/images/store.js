@@ -1,26 +1,64 @@
 import { UploadFS } from 'meteor/jalik:ufs';
-import { Images, Thumbs } from './collection';
+import { Images, Thumbs96, Thumbs200, Thumbs40 } from './collection';
 import { Meteor } from 'meteor/meteor';
 
 
-export const ThumbsStore = new UploadFS.store.GridFS({
-  collection: Thumbs,
-  name: 'thumbs',
-  // transformWrite: (from, to, fileId, file) => {
-  //   const gm = Npm.require('gm');
-  //   if (gm) {
-  //     gm(from)
-  //           .resize(30, 30)
-  //           .gravity('Center')
-  //           .extent(30, 30)
-  //           .quality(80)
-  //           .stream()
-  //           .pipe(to);
-  //   } else {
-  //     console.error('im is not available', file);
-  //   }
-  // },
+export const Thumbs96Store = new UploadFS.store.GridFS({
+  collection: Thumbs96,
+  name: 'thumbs96',
+  transformWrite: function(from, to, fileId, file) {
+        var gm = require('gm').subClass({imageMagick:true});
+        if (gm) {
+            gm(from)
+                .resize(96, 96)
+                .gravity('Center')
+                .extent(96, 96)
+                .quality(75)
+                .stream().pipe(to);
+
+        } else {
+            console.error("gm is not available", file);
+        }
+    }
 });
+export const Thumbs40Store = new UploadFS.store.GridFS({
+  collection: Thumbs40,
+  name: 'thumbs40',
+  transformWrite: function(from, to, fileId, file) {
+        var gm = require('gm').subClass({imageMagick:true});
+        if (gm) {
+            gm(from)
+                .resize(40, 40)
+                .gravity('Center')
+                .extent(40, 40)
+                .quality(75)
+                .stream().pipe(to);
+
+        } else {
+            console.error("gm is not available", file);
+        }
+    }
+});
+
+export const Thumbs200Store = new UploadFS.store.GridFS({
+  collection: Thumbs200,
+  name: 'thumbs200',
+  transformWrite: function(from, to, fileId, file) {
+        var gm = require('gm').subClass({imageMagick:true});
+        if (gm) {
+            gm(from)
+                .resize(200, 200)
+                .gravity('Center')
+                .extent(200, 200)
+                .quality(75)
+                .stream().pipe(to);
+
+        } else {
+            console.error("gm is not available", file);
+        }
+    }
+});
+
 
 export const ImagesStore = new UploadFS.store.GridFS({
   collection: Images,
@@ -32,7 +70,22 @@ export const ImagesStore = new UploadFS.store.GridFS({
   filter: new UploadFS.Filter({
     contentTypes: ['image/*'],
   }),
+  // transformWrite: function(from, to, fileId, file) {
+  //       var gm = require('gm').subClass({imageMagick:true});
+  //       if (gm) {
+  //           gm(from)
+  //               .resize(1000,1000,'>')
+  //               .gravity('Center')
+  //               .quality(75)
+  //               .stream().pipe(to);
+  //
+  //       } else {
+  //           console.error("gm is not available", file);
+  //       }
+  //   },
   copyTo: [
-    ThumbsStore,
+    Thumbs40Store,
+    Thumbs96Store,
+    Thumbs200Store,
   ],
 });

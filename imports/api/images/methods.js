@@ -37,6 +37,15 @@ export function upload(dataUrl, name, resolve, reject) {
     data: blob,
     file: photo,
     store: ImagesStore,
+    // Optimize speed transfer by increasing/decreasing chunk size automatically
+    adaptive: true,
+    // The size of each chunk sent to the server
+    chunkSize: 8 * 1024, // 8k
+    // The max chunk size (used only if adaptive = true)
+    maxChunkSize: 128 * 1024, // 128k
+    // This tells how many tries to do if an error occurs during upload
+    maxTries: 5,
+    // The error callback
     onError: reject,
     onComplete: resolve,
   });

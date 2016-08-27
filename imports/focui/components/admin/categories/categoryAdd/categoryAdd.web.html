@@ -3,7 +3,7 @@
     <label>
       Category Name:
     </label>
-    <input type="text" ng-model="categoryAdd.category.name"/>
+    <input type="text" ng-model="categoryAdd.category.name" required/>
   </md-input-container>
   <md-input-container>
     <label>
@@ -12,7 +12,7 @@
     <input type="text" ng-model="categoryAdd.category.description"/>
   </md-input-container>
   <div flex>
-    <md-checkbox ng-model="categoryAdd.party.public" aria-label="Public Party?">
+    <md-checkbox ng-model="categoryAdd.category.publish" aria-label="Publish">
       Publish Category?
     </md-checkbox>
     <md-input-container>
@@ -23,7 +23,12 @@
     </md-input-container>
   </div>
   <div flex>
-    <md-button ng-click="categoryAdd.add()" class="md-raised">Add Category</md-button>
+    <md-button ng-disabled="!categoryAdd.category.name" ng-click="categoryAdd.add()" class="md-raised">Add Category</md-button>
   </div>
-  <upload-file files="categoryAdd.category.image" type='image'></upload-file>
+  <file-upload
+    ok-to-save="categoryAdd.okToSave"
+    done="categoryAdd.save($event)"
+    crop-settings = "{aspectRatio: 1, resultImageSize: 'max', crop:true, areaType:'square'}"
+    >
+  </file-upload>
 </div>
