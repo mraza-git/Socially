@@ -329,7 +329,7 @@ import template from './ms-note-form.html';
                 noteType: '=',
                 noteId  : '='
             },
-            template,
+            template:template,
             link        : function (scope, element, attributes, MsNoteForm)
             {
                 // Type

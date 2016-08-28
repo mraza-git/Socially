@@ -15,7 +15,7 @@ import '../foc-apps/todo/todo.module.js';
 import '../foc-apps/projects/projects.module.js';
 import '../foc-apps/coming-soon/coming-soon.module.js';
 
- 
+
 'use strict';
 
 /**
@@ -37,9 +37,9 @@ angular
 
         // Landing Component
         Landing,
-
-        // Sample app
-        'app.sample',
+        //
+        // // Sample app
+        // 'app.sample',
 
         //Admin app
         userList,

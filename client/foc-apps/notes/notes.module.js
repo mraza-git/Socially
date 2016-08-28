@@ -5,9 +5,7 @@ import template from './notes.html';
     'use strict';
 
     angular
-        .module('app.notes', [
-
-        ])
+        .module('app.notes',['app.core'])
         .config(config);
 
     /** @ngInject */
@@ -17,7 +15,7 @@ import template from './notes.html';
             url    : '/notes',
             views  : {
                 'content@app': {
-                    template,
+                    template:template,
                     controller : 'NotesController as vm'
                 }
             },

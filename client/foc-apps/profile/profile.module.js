@@ -24,8 +24,9 @@ import layoutWithToolbarTemplate from '../../fuse/core/layouts/content-with-tool
         .run(run)
         .config(config);
 
+    /** @ngInject */
     function run(editableOptions,editableThemes){
-        /** @ngInject */
+
          editableThemes['angular-material'] = {
             formTpl:      '<form class="editable-wrap"></form>',
             noformTpl:    '<span class="editable-wrap"></span>',
