@@ -146,7 +146,7 @@ import template from './ms-note-item.html';
         return {
             restrict        : 'A',
             controller      : 'msNoteItemController as MsNoteItem',
-            template,
+            template: template,
             require         : ['msNoteItem', '^msMasonry'],
             bindToController: {
                 msNoteItem: '='

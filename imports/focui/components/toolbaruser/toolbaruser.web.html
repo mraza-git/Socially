@@ -6,7 +6,7 @@
             <div layout="row" layout-align="space-between center">
                 <div class="avatar-wrapper">
                   <!-- Include image and image filter here -->
-                    <img md-menu-align-target class="avatar" src="assets/images/avatars/profile.jpg">
+                    <img md-menu-align-target class="avatar" ng-src="{{toolbarUser.thumbs[0].url || 'assets/images/avatars/profile.jpg'}}">
                     <md-icon md-font-icon ng-class="toolbarUser.user.profile.userStatus.icon"
                              ng-style="{'color': toolbarUser.user.profile.userStatus.color }"
                              class="icon status s16">
@@ -30,13 +30,13 @@
             </md-menu-item>
 
             <!-- Change Password  -->
-            <md-menu-item class="md-indent" ng-click="toolbarUser.openChangePassword(event)">
+            <md-menu-item class="md-indent" ng-click="toolbarUser.openChangePassword($event)">
                 <md-icon md-font-icon="icon-email" class="icon"></md-icon>
                 <md-button>Change Password</md-button>
             </md-menu-item>
 
             <!--  Change profile picture -->
-            <md-menu-item class="md-indent" ui-sref="app.chat">
+            <md-menu-item class="md-indent" ng-click="toolbarUser.openChangePictureModal($event)">
                 <md-icon md-font-icon="icon-email" class="icon"></md-icon>
                 <md-button>Change Picture</md-button>
             </md-menu-item>

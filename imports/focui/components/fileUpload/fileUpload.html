@@ -8,8 +8,8 @@
     ngf-allow-dir="false"
     ngf-accept="'image/*'"
     ngf-drop-available="true"
-    ngf-resize = "{width: 1000}"
-    ngf-resize-if = "$width > 1000 || $height > 1000"
+    ngf-resize = "{width: 2000}"
+    ngf-resize-if = "$width > 2000 || $height > 2000"
     ng-hide="fileUpload.cropImgSrc">
     <div>Click here to select image</div>
     <div>
@@ -35,8 +35,11 @@
         area-type="{{fileUpload.areaType || 'square'}}"
         aspect-ratio = "fileUpload.cropSettings.aspectRatio || 1"
         init-max-area = "true"
+        result-image-format = 'image/jpeg'
+        result-image-quality = "0.3"
+        chargement = "Loading"
         result-image-size="fileUpload.resultImageSize || 'max'">
-      </img-crop>      
+      </img-crop>
     </div>
     </div>
   </div>

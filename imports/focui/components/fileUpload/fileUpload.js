@@ -17,26 +17,12 @@ class FileUpload {
     $reactive(this).attach($scope);
     this.uploaded = {};
     if(this.cropSettings){
-      console.log(this.cropSettings);
       this.crop = this.cropSettings.crop || false;
       this.aspectRatio = this.cropSettings.aspectRatio || 1;
       this.resultImageSize = this.cropSettings.resultImageSize || 'max';
       this.areaType = this.cropSettings.areaType || 'square';
 
     }
-
-    // this.subscribe('thumbs96', () => [
-    //   this.getReactively('file', true) || []
-    // ]);
-    //
-    // this.helpers({
-    //   thumb() {
-    //     return Thumbs96.findOne({
-    //       originalStore: 'images',
-    //       originalId: this.getReactively('file', true) || ""
-    //     });
-    //   }
-    // });
 
     this.autorun(()=>{
         if(this.getReactively('okToSave')){
@@ -52,15 +38,15 @@ class FileUpload {
       const reader = new FileReader;
 
       reader.onload = this.$bindToContext((e) => {
-        // if(this.crop){
+        if(this.crop){
           this.cropImgSrc = e.target.result;
           this.cropNow();
           this.myCroppedImage = '';
-        // }
-        // else {
-        //   this.myCroppedImage = e.target.result;
-        //   this.cropIsDone = true;
-        // }
+        }
+        else {
+          this.myCroppedImage = e.target.result;
+          this.cropIsDone = true;
+        }
       });
 
       reader.readAsDataURL(files[0]);
@@ -70,9 +56,12 @@ class FileUpload {
   }
 
   cropDone(){
-    if(this.myCroppedImage)
-    this.croppedImage = angular.copy(this.myCroppedImage);
+    if(this.myCroppedImage){
+      this.croppedImage = angular.copy(this.myCroppedImage);
     this.cropIsDone = true;
+    if(this.okToSave)
+      this.save();
+    }
   }
 
   cropNow(){
@@ -80,9 +69,9 @@ class FileUpload {
   }
 
   save() {
-    if(!this.myCroppedImage){
+    if(!this.croppedImage){
       this.reset();
-      this.done();
+      this.done(false);
       return;
     }
     upload(this.croppedImage, this.currentFile.name, this.$bindToContext((file) => {
@@ -94,7 +83,7 @@ class FileUpload {
       });
       this.reset();
     }), (e) => {
-      console.log('Oops, something went wrong', e);
+      // error uploading
     });
   }
 

@@ -17,6 +17,7 @@ const template = Meteor.isCordova? mobileTemplate : webTemplate;
 
 class UserListNav{
   constructor($scope,$reactive,$state,$mdToast){
+    'ngInject';
     this.state = $state;
     $reactive(this).attach($scope);
     this.helpers({
@@ -26,7 +27,7 @@ class UserListNav{
     });
 
   }
-  selectedUser(contactId){    
+  selectedUser(contactId){
     this.onChange({
       userId: contactId
     });

@@ -1,4 +1,4 @@
-import './notes.module';
+import './notes.module.js';
 (function ()
 {
     'use strict';
