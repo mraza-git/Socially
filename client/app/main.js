@@ -14,6 +14,7 @@ import '../foc-apps/notes/notes.module.js';
 import '../foc-apps/todo/todo.module.js';
 import '../foc-apps/projects/projects.module.js';
 import '../foc-apps/coming-soon/coming-soon.module.js';
+import '../foc-apps/components/price-tables/price-tables.module.js';
 
 
 'use strict';
@@ -61,6 +62,7 @@ angular
 
         'app.coming-soon',
 
+        'app.components.price-tables',
 
 
     ]);

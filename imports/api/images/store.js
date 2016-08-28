@@ -58,7 +58,7 @@ export const ImagesStore = new UploadFS.store.GridFS({
                 //.resize(1000, 1000,'>')
                 //.gravity('Center')
                 //.extent(1000, 1000)
-                .quality(95)
+                .quality(30)
                 .stream().pipe(to);
 
         } else {
