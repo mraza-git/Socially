@@ -8,20 +8,15 @@ import './core.module.js';
     angular
         .module('app.core')
         .config(config)
-        .config(function (flowFactoryProvider) {
-          flowFactoryProvider.factory = function (opts) {
-            var Flow = require('ng-flow/dist/ng-flow-standalone.js');
-            return new Flow(opts)
-         }
-       })
-      //  .config(function (timerFactoryProvider) {
-      //    timerFactoryProvider.factory = function (opts) {
-      //      var humanizeDuration = require('humanize-duration');
-      //      return new humanizeDuration(opts)
-      //   }
-      // })
-       ;
+        .config(flowConfig);
 
+    /** @ngInject */
+    function flowConfig(flowFactoryProvider) {
+      flowFactoryProvider.factory = function (opts) {
+        var Flow = require('ng-flow/dist/ng-flow-standalone.js');
+        return new Flow(opts);
+     }
+   }
 
 
     /** @ngInject */

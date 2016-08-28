@@ -86,10 +86,10 @@ import template from './ms-new-note.html';
             restrict    : 'E',
             controller  : 'msNewNoteController',
             controllerAs: 'MsNewNote',
-            template,
+            template: template,
             link        : function (scope, element, attributes, MsNewNote)
             {
-                MsNewNote.element = element;
+                 MsNewNote.element = element;
             }
         };
     }
