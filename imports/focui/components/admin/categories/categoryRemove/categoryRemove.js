@@ -3,10 +3,14 @@ import angularMeteor from 'angular-meteor';
 
 import template from './categoryRemove.html';
 import { Categories } from '../../../../../api/categories';
+import {Images} from '../../../../../api/images';
 
 class CategoryRemove {
   remove() {
     if (this.category) {
+      if (this.category.image){
+        Images.remove(this.category.image.id);
+      }
       Categories.remove(this.category._id);
     }
   }

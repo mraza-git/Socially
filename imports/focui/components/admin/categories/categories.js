@@ -7,15 +7,17 @@ import "../../../../../client/fuse/core/core.module.js";
 import {name as CategoryAddButton} from './categoryAddButton/categoryAddButton';
 import {name as CategoryRemove} from './categoryRemove/categoryRemove';
 
-
+import modalTemplate from './categoryAddButton/categoryAddModal.html';
 import webTemplate from './categories.web.html';
 import mobileTemplate from './categories.mobile.html';
 const template = Meteor.isCordova? mobileTemplate : webTemplate;
 import './categories.scss';
 
 class CategoryList{
-  constructor($scope,$reactive){
+  constructor($scope,$reactive,$mdDialog,$mdMedia){
     'ngInject';
+    this.$mdDialog = $mdDialog;
+    this.$mdMedia = $mdMedia;
     $reactive(this).attach($scope);
     this.subscribe('categories');
 
@@ -30,6 +32,26 @@ class CategoryList{
         return Meteor.userId();
       },
     });
+
+  }
+  edit(category,event){
+      this.$mdDialog.show({
+        controller($mdDialog,category) {
+          'ngInject';
+          this.category = category;
+          this.close = () => {
+            $mdDialog.hide();
+          }
+        },
+        controllerAs: 'categoryAddModal',
+        template: modalTemplate,
+        targetEvent: event,
+        locals: {category: category},
+        parent: angular.element(document.body),
+        clickOutsideToClose: true,
+        fullscreen: this.$mdMedia('sm') || this.$mdMedia('xs')
+      });
+
 
   }
 
