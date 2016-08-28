@@ -5,3 +5,13 @@ category-add-button {
     bottom: 15px;
   }
 }
+md-dialog {
+    min-width: 528px;
+    md-input-container {
+        margin: 0;
+    }
+}
+
+md-dialog .md-dialog-content {
+    padding: 5px 24px;
+}
