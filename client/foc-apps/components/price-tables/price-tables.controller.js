@@ -9,12 +9,19 @@ import "./price-tables.module.js";
         .controller('PriceTablesController', PriceTablesController);
 
     /** @ngInject */
-    function PriceTablesController()
+    function PriceTablesController($scope)
     {
+      var vm = this;
+      vm.credits = 0;
+      vm.amount = 0;
         // Data
 
         // Methods
-
+        vm.change = function(){
+          vm.rate = 3.68;
+          vm.inLocalCurrency = vm.credits * vm.rate;
+          vm.amount = parseInt(vm.inLocalCurrency);
+        }
         //////////
     }
 
