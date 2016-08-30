@@ -18,12 +18,9 @@ class FileUpload {
     this.uploaded = {};
     if(this.cropSettings){
       this.crop = this.cropSettings.crop || false;
-      this.aspectRatio = this.cropSettings.aspectRatio || 1;
-      this.resultImageSize = this.cropSettings.resultImageSize || 'max';
-      this.areaType = this.cropSettings.areaType || 'square';
-
     }
 
+    // watch if its ok to save.
     this.autorun(()=>{
         if(this.getReactively('okToSave')){
           this.save();
@@ -71,7 +68,7 @@ class FileUpload {
   save() {
     if(!this.croppedImage){
       this.reset();
-      this.done(false);
+      this.done();
       return;
     }
     upload(this.croppedImage, this.currentFile.name, this.$bindToContext((file) => {
@@ -84,6 +81,7 @@ class FileUpload {
       this.reset();
     }), (e) => {
       // error uploading
+      console.log("Error Uploading:" ,e)
     });
   }
 
@@ -105,7 +103,8 @@ export default angular.module(name, [
   bindings: {
     okToSave: '<',
     done: '&',
-    cropSettings:'<'
+    cropSettings:'<',
+    
   },
   controllerAs: name,
   controller: FileUpload

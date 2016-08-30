@@ -32,13 +32,10 @@
         <img-crop
         image="fileUpload.cropImgSrc"
         result-image="fileUpload.myCroppedImage"
-        area-type="{{fileUpload.areaType || 'square'}}"
+        area-type="{{fileUpload.cropSettings.areaType || 'square'}}"
         aspect-ratio = "fileUpload.cropSettings.aspectRatio || 1"
         init-max-area = "true"
-        result-image-format = 'image/jpeg'
-        result-image-quality = "0.3"
-        chargement = "Loading"
-        result-image-size="fileUpload.resultImageSize || 'max'">
+        result-image-size="fileUpload.cropSettings.resultImageSize || 'max'">
       </img-crop>
     </div>
     </div>

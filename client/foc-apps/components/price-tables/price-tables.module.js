@@ -15,6 +15,7 @@ import template from './price-tables.html';
             views: {
                 'content@app': {
                     template: template,
+                    controller : 'PriceTablesController as vm'
                 }
             }
         });

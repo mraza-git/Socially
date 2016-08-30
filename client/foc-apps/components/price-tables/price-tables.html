@@ -41,14 +41,13 @@
                     <div class="term">Unlimited projects</div>
                     <div class="term">24 / 7 Free support</div>
                     <md-input-container class="md-block md-default-theme flex-gt-sm md-input-invalid" flex-gt-sm="">
-                      <label class="md-required" for="input_246">Enter Credits</label>
-                      <input required="" class="ng-pristine md-input ng-empty ng-invalid ng-invalid-required ng-touched" id="input_246" aria-invalid="true" ng-trim="false"><div class="md-errors-spacer"></div>
+                      <label class="md-required" for="input_501">Enter Credits</label>
+                      <input required id="input_501"  type="number" ng-model="vm.credits" ng-change="vm.change()"><div class="md-errors-spacer"></div>
                     </md-input-container>
+                    <div class="price-aed">AED {{vm.amount}}</div>
                 </div>
 
-                <md-button class="cta-button md-raised md-accent">GET STARTED FREE</md-button>
-
-                <div class="note">7 day free trial to start</div>
+                <md-button class="cta-button md-raised md-accent">BUY NOW</md-button>
             </div>
 
             <div class="price-table style-3 md-whiteframe-1dp" layout="column">
@@ -75,9 +74,7 @@
                     <div class="price-aed">AED 350</div>
                 </div>
 
-                <md-button class="cta-button md-raised md-accent">GET STARTED FREE</md-button>
-
-                <div class="note">7 day free trial to start</div>
+                <md-button class="cta-button md-raised md-accent">BUY NOW</md-button>
             </div>
 
             <div class="price-table style-3 md-whiteframe-8dp" layout="column">
@@ -105,9 +102,7 @@
                     <div class="price-aed">AED 685</div>
                 </div>
 
-                <md-button class="cta-button md-raised md-accent">GET STARTED FREE</md-button>
-
-                <div class="note">7 day free trial to start</div>
+                <md-button class="cta-button md-raised md-accent">BUY NOW</md-button>
             </div>
 
                 <div class="price-table style-3 md-whiteframe-1dp" layout="column">
@@ -137,9 +132,7 @@
                         <div class="price-aed">AED 1650</div>
                     </div>
 
-                    <md-button class="cta-button md-raised md-accent">GET STARTED FREE</md-button>
-
-                    <div class="note">7 day free trial to start</div>
+                    <md-button class="cta-button md-raised md-accent">BUY NOW</md-button>
                 </div>
 
         </div>
