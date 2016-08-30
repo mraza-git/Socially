@@ -55,9 +55,9 @@ export const ImagesStore = new UploadFS.store.GridFS({
         var gm = require('gm').subClass({imageMagick:true});
         if (gm) {
             gm(from,file)
-                //.resize(1000, 1000,'^')
-                //.gravity('Center')
-                //.extent(1000, 1000)
+                // .resize(1000, 1000,'^')
+                // .gravity('Center')
+                // .extent(1000, 1000)
                 .quality(75)
                 .stream().pipe(to);
 

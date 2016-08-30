@@ -71,18 +71,23 @@ class FileUpload {
       this.done();
       return;
     }
-    upload(this.croppedImage, this.currentFile.name, this.$bindToContext((file) => {
-      this.uploaded=file;
-      this.done({
-        $event: {
-          file:{id: file._id,url:file.url}
-        }
+    this.uploading = true;
+    upload(this.croppedImage, this.currentFile.name, this.$bindToContext((file,progress)=>{
+        this.progress = progress*100;
+      }),
+      this.$bindToContext((file) => {
+        this.uploaded=file;
+        this.uploading = false;
+        this.done({
+          $event: {
+            file:{id: file._id,url:file.url}
+          }
+        });
+        this.reset();
+      }), (e) => {
+        // error uploading
+        console.log("Error Uploading:" ,e)
       });
-      this.reset();
-    }), (e) => {
-      // error uploading
-      console.log("Error Uploading:" ,e)
-    });
   }
 
   reset() {
@@ -104,7 +109,7 @@ export default angular.module(name, [
     okToSave: '<',
     done: '&',
     cropSettings:'<',
-    
+
   },
   controllerAs: name,
   controller: FileUpload
