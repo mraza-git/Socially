@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import {name as Landing} from '../landing/landing.js';
 import {name as userList} from '../../imports/focui/components/admin/usermgmt/userlist';
 import {name as CategoryList} from '../../imports/focui/components/admin/categories/categories';
+import {name as SampleContact} from '../../imports/focui/components/sample/sample.js';
 
 import '../sample/sample.module.js';
 import '../foc-apps/chat/chat.module.js';
@@ -45,6 +46,7 @@ angular
         //Admin app
         userList,
         CategoryList,
+        SampleContact,
 
         'app.chat',
 
