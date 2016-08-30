@@ -154,6 +154,7 @@
         border-radius: 2px;
         margin: 24px 24px 0 0;
         overflow: hidden;
+        min-height: 693px;
 
         &.style-1 {
 
@@ -336,11 +337,16 @@
                     font-size: 28px;
                     color: rgba(0, 0, 0, 0.85);
                     font-weight: 500;
+                    bottom: 70px;
+                    position: absolute;
                 }
             }
 
             .cta-button {
                 margin: 8px 32px;
+                position: absolute;
+                min-width: 216px;
+                bottom: 15px;
             }
 
             .note {
