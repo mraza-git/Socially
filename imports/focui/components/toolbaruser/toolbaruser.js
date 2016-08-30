@@ -113,9 +113,8 @@ class ToolbarUser{
 
   openChangePictureModal($event){
        this.$mdDialog.show({
-        controller($mdDialog,user) {
+        controller($mdDialog) {
           'ngInject';
-          console.log(user);
           this.close = () => {
             $mdDialog.hide(false);
           }
@@ -128,7 +127,6 @@ class ToolbarUser{
         controllerAs: 'imageModal',
         template: pictureModalTemplate,
         targetEvent: $event,
-        locals: { user: this.user },
         parent: angular.element(document.body),
         clickOutsideToClose: true,
         fullscreen: this.$mdMedia('sm') || this.$mdMedia('xs')
@@ -148,7 +146,7 @@ class ToolbarUser{
               console.log('Unable to update', error);
               Images.remove({_id:event.file.id}); // Remove new image if user update failed.
             } else {
-              console.log('Picture Updated!');
+              //New Picture Updated
               Images.remove({_id: oldPicId}); // Remove old image once new is updated.
             }
           });

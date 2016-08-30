@@ -17,19 +17,26 @@
     </div>
     <div>You can also drop image to here</div>
   </div>
-  <div ng-if="fileUpload.cropImgSrc" layout="column" class="ng-crop">
+  <md-progress-linear
+    ng-disabled="!fileUpload.uploading"
+    md-mode="determinate" class="md-warn"
+    value="{{fileUpload.progress}}">
+  </md-progress-linear>
+  <!-- <md-progress-circular ng-disabled="!fileUpload.uploading" class="md-accent" md-diameter="40"></md-progress-circular> -->
+  <div ng-if="fileUpload.cropImgSrc" layout="column" class="ng-crop" ng-hide="fileUpload.uploading">
     <div>
-      <h3>Edit &amp; crop</h3>
-      <md-button ng-click="fileUpload.cropDone()" class="md-primary">
+      <md-button ng-click="fileUpload.cropDone()" class="md-accent md-raised">
         Crop Image
       </md-button>
-      <md-button ng-click="fileUpload.reset()">
+      <md-button ng-click="fileUpload.reset()" class="md-primary md-raised">
         Cancel
       </md-button>
+
     </div>
     <div ng-hide='fileUpload.cropIsDone'>
       <div class="ng-crop-container" >
         <img-crop
+        area-min-size = "40"
         image="fileUpload.cropImgSrc"
         result-image="fileUpload.myCroppedImage"
         area-type="{{fileUpload.cropSettings.areaType || 'square'}}"
@@ -40,7 +47,7 @@
     </div>
     </div>
   </div>
-  <div layout="row" class="images-container-title" ng-show='fileUpload.cropIsDone'>
+  <div layout="row" class="images-container-title" ng-hide='!fileUpload.cropIsDone || fileUpload.uploading'>
     <div  class="file-image-container main-image" >
       <img ng-src="{{fileUpload.croppedImage}}"/>
       <md-icon md-font-icon="icon-pencil" style="left:10px;bottom:100px;" ng-click='fileUpload.cropNow()'></md-icon>

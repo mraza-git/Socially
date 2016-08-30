@@ -1,4 +1,4 @@
-<md-dialog aria-label="Set Picture" ng-cloak>
+<md-dialog aria-label="Set Picture">
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>Add or replace picture</h2>
@@ -13,7 +13,7 @@
       <file-upload
         ok-to-save="true"
         done="imageModal.done($event)"
-        crop-settings = "{aspectRatio: 1, resultImageSize: 'max', crop:true, areaType:'circle'}"
+        crop-settings = "{aspectRatio: 1, resultImageSize: {w:300}, crop:true, areaType:'circle'}"
         >
       </file-upload>
     </div>

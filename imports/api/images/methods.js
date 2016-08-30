@@ -11,7 +11,7 @@ import _ from 'underscore';
  * @param  {Function} resolve [description]
  * @param  {Function} reject  [description]
  */
-export function upload(dataUrl, name, resolve, reject) {
+export function upload(dataUrl, name, progress ,resolve, reject) {
   // convert to Blob
   const blob = dataURLToBlob(dataUrl);
   blob.name = name;
@@ -47,7 +47,10 @@ export function upload(dataUrl, name, resolve, reject) {
     maxTries: 5,
     // The error callback
     onError: reject,
+    //Complete callback
     onComplete: resolve,
+    //Progress callback
+    onProgress:progress,
   });
   worker.start();
 }
