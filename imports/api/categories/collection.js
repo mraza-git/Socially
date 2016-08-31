@@ -4,7 +4,6 @@ import { Meteor } from 'meteor/meteor';
 
 export const Categories = new Mongo.Collection('categories');
 export const Services = new Mongo.Collection('services');
-export const Questions = new Mongo.Collection('questions');
 
 Categories.allow({
   insert(category) {

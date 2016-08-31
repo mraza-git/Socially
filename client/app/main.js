@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import {name as Landing} from '../landing/landing.js';
 import {name as userList} from '../../imports/focui/components/admin/usermgmt/userlist';
 import {name as CategoryList} from '../../imports/focui/components/admin/categories/categories';
+import {name as ServiceList} from '../../imports/focui/components/admin/services/services';
 import {name as SampleContact} from '../../imports/focui/components/sample/sample.js';
 
 import '../sample/sample.module.js';
@@ -46,6 +47,7 @@ angular
         //Admin app
         userList,
         CategoryList,
+        ServiceList,
         SampleContact,
 
         'app.chat',
@@ -65,6 +67,7 @@ angular
         'app.coming-soon',
 
         'app.components.price-tables',
+
 
 
     ]);

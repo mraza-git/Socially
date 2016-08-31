@@ -1,0 +1,16 @@
+<md-dialog aria-label="New Service">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>New Service</h2>
+      <span flex></span>
+      <md-button ng-click="serviceAddModal.close()">
+        Close
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <service-add service="serviceAddModal.service" category-id="{{serviceAddModal.categoryId}}" done="serviceAddModal.close()"></service-add>
+    </div>
+  </md-dialog-content>
+</md-dialog>

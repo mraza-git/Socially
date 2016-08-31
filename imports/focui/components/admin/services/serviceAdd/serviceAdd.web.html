@@ -1,0 +1,34 @@
+<div layout="column" layout-padding>
+  <md-input-container>
+    <label>
+      Service Name:
+    </label>
+    <input type="text" ng-model="serviceAdd.service.name" required/>
+  </md-input-container>
+  <md-input-container>
+    <label>
+      Description:
+    </label>
+    <input type="text" ng-model="serviceAdd.service.description"/>
+  </md-input-container>
+  <div flex>
+    <md-checkbox ng-model="serviceAdd.service.publish" aria-label="Publish">
+      Publish Service?
+    </md-checkbox>
+    <md-input-container>
+      <label>
+        Publish Date:
+      </label>
+
+    </md-input-container>
+  </div>
+  <div flex>
+    <md-button ng-disabled="!serviceAdd.service.name" ng-click="serviceAdd.add()" class="md-raised">Add Service</md-button>
+  </div>
+  <file-upload
+    ok-to-save="serviceAdd.okToSave"
+    done="serviceAdd.save($event)"
+    crop-settings = "{aspectRatio: 1, resultImageSize: 'max', crop:true, areaType:'square'}"
+    >
+  </file-upload>
+</div>

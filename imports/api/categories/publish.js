@@ -19,4 +19,9 @@ if(Meteor.isServer){
     return Services.find({where,options});
   })
 
+  Meteor.publish('catServices',function(ids){
+    return Services.find({
+      categoryId: {$in: ids,},
+    })
+  })
 }
