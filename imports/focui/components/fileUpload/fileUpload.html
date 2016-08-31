@@ -22,7 +22,13 @@
     md-mode="determinate" class="md-warn"
     value="{{fileUpload.progress}}">
   </md-progress-linear>
-  <!-- <md-progress-circular ng-disabled="!fileUpload.uploading" class="md-accent" md-diameter="40"></md-progress-circular> -->
+  <!-- <md-progress-circular
+  ng-disabled="!fileUpload.uploading"
+  class="md-accent" md-diameter="40"
+  md-mode="determinate"
+  value="{{fileUpload.progress}}">
+  </md-progress-circular> -->
+
   <div ng-if="fileUpload.cropImgSrc" layout="column" class="ng-crop" ng-hide="fileUpload.uploading">
     <div>
       <md-button ng-click="fileUpload.cropDone()" class="md-accent md-raised">
