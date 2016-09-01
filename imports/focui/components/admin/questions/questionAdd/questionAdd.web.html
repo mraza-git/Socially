@@ -1,0 +1,28 @@
+<div layout="column" layout-padding>
+  <md-input-container>
+    <label>
+      Question Description:
+    </label>
+    <input type="text" ng-model="questionAdd.question.description" required/>
+  </md-input-container>
+  <md-input-container>
+    <label>
+      Question Type:
+    </label>
+    <input type="text" ng-model="questionAdd.question.description"/>
+  </md-input-container>
+  <div flex>
+    <md-checkbox ng-model="questionAdd.question.publish" aria-label="Publish">
+      Publish Now?
+    </md-checkbox>
+    <md-input-container>
+      <label>
+        Publish Date:
+      </label>
+
+    </md-input-container>
+  </div>
+  <div flex>
+    <md-button ng-disabled="!questionAdd.question.name" ng-click="questionAdd.save()" class="md-raised">Save</md-button>
+  </div>
+</div>
