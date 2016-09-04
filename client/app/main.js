@@ -1,6 +1,6 @@
 import angular from 'angular';
 import { Meteor } from 'meteor/meteor';
-import {name as Landing} from '../landing/landing.js';
+import {name as Landing} from '../../imports/focui/landing/landing';
 import {name as userList} from '../../imports/focui/components/admin/usermgmt/userlist';
 import {name as CategoryList} from '../../imports/focui/components/admin/categories/categories';
 import {name as ServiceList} from '../../imports/focui/components/admin/services/services';

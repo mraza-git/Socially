@@ -4,8 +4,10 @@ import { Meteor } from 'meteor/meteor';
 import {Services} from '../../../../api/categories';
 import utilsPagination from 'angular-utils-pagination';
 import "../../../../../client/fuse/core/core.module.js";
-import {name as serviceAddButton} from './serviceAddButton/serviceAddButton';
-import {name as serviceRemove} from './serviceRemove/serviceRemove';
+import "angular-sortable-view";
+import {name as ServiceAddButton} from './serviceAddButton/serviceAddButton';
+import {name as ServiceRemove} from './serviceRemove/serviceRemove';
+import {name as QuestionList} from '../questions/questions';
 
 import modalTemplate from './serviceAddButton/serviceAddModal.html';
 import webTemplate from './services.web.html';
@@ -23,7 +25,7 @@ class ServiceList{
       this.categoryId = $stateParams.catId;
     }
     $reactive(this).attach($scope);
-    this.subscribe('catServices',function(){      
+    this.subscribe('catServices',function(){
       return [[this.getReactively("categoryId")]] || [];
     });
 
@@ -74,9 +76,11 @@ const name = 'serviceList';
 export default angular.module(name, [
   angularMeteor,
   utilsPagination,
+  'angular-sortable-view',
   'app.core',
-  serviceAddButton,
-  serviceRemove,
+  ServiceAddButton,
+  ServiceRemove,
+  QuestionList,
 
 ]).component(name, {
   template,

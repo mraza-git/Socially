@@ -1,0 +1,52 @@
+<div layout="column" layout-padding>
+  <form layout="column" name="fieldsForm" role="form" ng-submit="fieldsForm.$valid && questionAdd.save()">
+    <md-input-container>
+      <label>
+        Question Description:
+      </label>
+      <input type="text" ng-maxlength="50" ng-minlength="5" name="description" ng-model="questionAdd.question.description" autofocus required/>
+      <div class="errors" ng-messages="fieldsForm.description.$error">
+          <div ng-message="required">Description is Required</div>
+          <div ng-message="minlength">Description should contain at least 5 characters</div>
+          <div ng-message="maxlength">Max length is 50 characters</div>
+      </div>
+    </md-input-container>
+    <div layout="row" layout-align="space-between center">
+      <span>Please specify the type of the field?</span>
+      <div layout="column">
+        <md-input-container>
+          <md-select name="fieldType" ng-model="questionAdd.question.type" placeholder="Type" class="md-no-underline" required>
+            <md-option ng-repeat="type in questionAdd.types" value='{{type.id}}'>{{type.name}}</md-option>
+          </md-select>
+          <div class="errors" ng-messages="fieldsForm.fieldType.$error">
+            <div ng-message="required">Type is Required</div>
+          </div>
+        </md-input-container>
+      </div>
+    </div>
+    <div>
+      <ul>
+        <li ng-repeat="option in questionAdd.question.options" layout-align="space-between center">
+          <h2>
+            {{option.description}}
+          </h2>
+          <!-- using standard question remove component again for removing option from options array -->
+          <question-remove questions="questionAdd.question.options" index="1index"></question-remove>
+        </li>
+      </ul>
+    </div>
+    <add-option ng-show="questionAdd.question.type==3" question="questionAdd.question"></add-option>
+    <div layout="row" layout-align="space-between center" flex>
+      <md-checkbox ng-model="questionAdd.publishNow" aria-label="Publish">
+        Publish Now?
+      </md-checkbox>
+      <md-input-container>
+        <md-datepicker ng-disabled="questionAdd.publishNow" ng-model="questionAdd.question.publishAt" md-placeholder="Enter Publish date" aria-label="Publish Date"></md-datepicker>
+      </md-input-container>
+    </div>
+    <md-divider class="inset"></md-divider>
+    <div flex>
+      <md-button type="submit" ng-disabled="!fieldsForm.$valid"  class="md-raised">Save</md-button>
+    </div>
+  </form>
+</div>

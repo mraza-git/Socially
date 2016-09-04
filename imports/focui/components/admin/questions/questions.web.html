@@ -1,0 +1,47 @@
+<div id="question" layout="column" layout-padding flex>
+  <div  layout="row" flex>
+    <div layout="column" flex="50">
+      <md-content layout="column" flex ms-scroll>
+        <div layout="column" sv-root sv-on-stop="questionList.update($part)" sv-part="questionList.service.questions">
+          <div ng-repeat="cat in questionList.service.questions" sv-element class="ms-card">
+            <div class="ms-card-content-wrapper template-3 teal-bg p-16 white-fg" layout="row" layout-align="space-between">
+              <div>
+                <div class="info">
+                  <div class="title h1" >
+                    {{cat.description}}
+                  </div>
+                  <div class="subtitle h3 secondary-text" >
+                    {{cat.type}}
+                  </div>
+                </div>
+                <div class="cta">
+                  <question-remove questions='questionList.service.questions' index="$index" done="questionList.update($event)"></question-remove>
+                  <question-edit question="cat"></question-edit>
+                  <md-button class="md-icon-button md-primary" aria-label="view sub questions" ng-click="questionList.selectedQuestion = cat">
+                    <md-icon md-font-icon="icon-view-list md-hue-1"> </md-icon>
+                    <md-tooltip md-direction="bottom">
+                      View and Edit Sub-Question
+                    </md-tooltip>
+                  </md-button>
+
+                </div>
+              </div>
+              <div layout-align="center center" layout='column'>
+                <span sv-handle>
+                  <md-icon md-font-icon="icon-drag" class="s40" ></md-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </md-content>
+      <h2>Form Data</h2>
+      <pre >{{questionList.service | json}}</pre>
+      <question-add-button service="questionList.service" ng-show="questionList.isLoggedIn"></question-add-button>
+    </div>
+    <md-content layout="column" flex>
+      <!-- <question-list ng-if="questionList.selectedQuestion" service="questionList.selectedQuestion.serviceId"></question-list> -->
+      <question-add question="questionList.selectedQuestion" service="questionList.selectedQuestion.serviceId"></question-add>
+    </md-content>
+    </div>
+</div>

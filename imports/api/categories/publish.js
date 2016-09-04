@@ -17,11 +17,14 @@ if(Meteor.isServer){
     };
     Counts.publish(this, 'numberOfServices', Services.find(where), {noReady: true});
     return Services.find({where,options});
-  })
+  });
 
   Meteor.publish('catServices',function(ids){
     return Services.find({
       categoryId: {$in: ids,},
     })
-  })
+  });
+  Meteor.publish('service',function(){
+    return Services.find({});
+  });
 }

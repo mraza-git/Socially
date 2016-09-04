@@ -1,0 +1,17 @@
+question-add-button {
+  .md-fab {
+    position: relative;
+    right: 15px;
+    bottom: 15px;
+  }
+}
+md-dialog {
+    min-width: 528px;
+    md-input-container {
+        margin: 0;
+    }
+}
+
+md-dialog .md-dialog-content {
+    padding: 5px 24px;
+}
