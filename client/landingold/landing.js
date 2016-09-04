@@ -141,13 +141,13 @@ function config($stateProvider,msNavigationServiceProvider) {
     //         weight: 1
     //     });
     //
-    //     msNavigationServiceProvider.saveItem('Landing', {
-    //         title    : 'Landing',
-    //         icon     : 'icon-tile-four',
-    //         state    : 'app.landing',
-    //         /*stateParams: {
-    //             'param1': 'page'
-    //          },*/
-    //         weight   : 1
-    //     });
+        msNavigationServiceProvider.saveItem('Landing', {
+            title    : 'Landing',
+            icon     : 'icon-google-pages',
+            state    : 'app.landing',
+            /*stateParams: {
+                'param1': 'page'
+             },*/
+            weight   : 1
+        });
 }

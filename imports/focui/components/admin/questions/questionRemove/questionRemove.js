@@ -4,10 +4,11 @@ import angularMeteor from 'angular-meteor';
 import template from './questionRemove.html';
 import {Images} from '../../../../../api/images';
 
-class ServiceRemove {
+class QuestionRemove {
   remove() {
     if (this.index) {
       this.questions.splice(this.index,1);
+      if(this.done)
       this.done({
         $event: {
           questions:this.questions,
@@ -27,8 +28,8 @@ export default angular.module(name, [
   bindings: {
     questions: '<',
     index:'<',
-    done: '&'
+    done: '&?'
   },
   controllerAs: name,
-  controller: ServiceRemove
+  controller: QuestionRemove
 });

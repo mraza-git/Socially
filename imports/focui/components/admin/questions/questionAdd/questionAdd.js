@@ -17,10 +17,17 @@ class QuestionAdd{
       {name: "input",id:1},
       {name: "checkbox",id:2},
       {name: "radio",id:3},
+      {name: "date",id:4},
+      {name: "file",id:5},
+      {name: "location",id:6},
+      {name: "number",id:7},
     ];
 
   }
   save(){
+    if(this.publishNow){
+      this.question.publishAt = new Date();
+    }
     if(this.question.serviceId){
       //Update
       console.log(this.question);

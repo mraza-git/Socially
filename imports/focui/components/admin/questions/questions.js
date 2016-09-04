@@ -39,6 +39,8 @@ class QuestionList{
         return Meteor.userId();
       },
     });
+    console.log(this.service);
+
   }
 
   update(part){
@@ -85,6 +87,7 @@ export default angular.module(name, [
   controller: QuestionList,
   bindings:{
     serviceId: '<',
+    question:'<'
   },
 })
 .config(config);
