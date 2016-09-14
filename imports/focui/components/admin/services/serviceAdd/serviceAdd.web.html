@@ -11,6 +11,22 @@
     </label>
     <input type="text" ng-model="serviceAdd.service.description"/>
   </md-input-container>
+  <md-input-container>
+        <label>Topping</label>
+        <md-select ng-model="serviceAdd.service.categoryIds" multiple  class="flex-no">
+            <md-option ng-value="category._id"
+              ng-repeat="category in serviceAdd.categories">
+              <div layout="row" layout-padding layout-align="center center">
+                <thumb-image image-id="category.image.id"
+                image-class="circle"
+                size="40">
+              </thumb-image>
+              {{category.name}}
+              </div>
+            </md-option>
+
+        </md-select>
+      </md-input-container>
   <div flex>
     <md-checkbox ng-model="serviceAdd.service.publish" aria-label="Publish">
       Publish Service?
@@ -19,16 +35,16 @@
       <label>
         Publish Date:
       </label>
-
     </md-input-container>
   </div>
+
   <div flex>
     <md-button ng-disabled="!serviceAdd.service.name" ng-click="serviceAdd.add()" class="md-raised">Add Service</md-button>
   </div>
   <file-upload
     ok-to-save="serviceAdd.okToSave"
     done="serviceAdd.save($event)"
-    crop-settings = "{aspectRatio: 1, resultImageSize: 'max', crop:true, areaType:'square'}"
+    crop-settings = "{aspectRatio: 1, resultImageSize: 'max', crop:false, areaType:'square'}"
     >
   </file-upload>
 </div>

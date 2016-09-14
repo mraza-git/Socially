@@ -1,9 +1,10 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Meteor } from 'meteor/meteor';
-import {Services} from '../../../../../api/categories/index';
+import {Services, Categories} from '../../../../../api/categories/index';
 import {name as FileUpload} from '../../../fileUpload/fileUpload';
 import { Images } from '../../../../../api/images';
+import {name as ThumbImage} from '../../../../utilComponents/thumbImage/thumbImage';
 import webTemplate from './serviceAdd.web.html';
 import mobileTemplate from './serviceAdd.mobile.html';
 const template = Meteor.isCordova? mobileTemplate : webTemplate;
@@ -14,6 +15,15 @@ class ServiceAdd{
     'ngInject';
     if(!this.service)
       this.service = {};
+    $reactive(this).attach($scope);
+
+    this.subscribe('categories');
+    this.helpers({
+      categories(){
+        return Categories.find({});
+      }
+    });
+
 
   }
   save(event){
@@ -54,7 +64,7 @@ class ServiceAdd{
       });
     }
     else{
-      //Insert      
+      //Insert
       Services.insert(this.service);
     }
 
@@ -79,6 +89,7 @@ const name = 'serviceAdd';
 export default angular.module(name, [
   angularMeteor,
   FileUpload,
+  ThumbImage,
 ]).component(name, {
   template,
   controllerAs: name,

@@ -3,8 +3,8 @@
   <service-add-button category-id="{{serviceList.categoryId}}" ng-show="serviceList.isLoggedIn"></service-add-button>
   <div  layout="row" >
     <md-content layout="column" flex ms-scroll>
-      <div layout="column" sv-root sv-part="serviceList.services">
-        <div ng-repeat="cat in serviceList.services" sv-element  class="ms-card">
+      <div layout="column" >
+        <div ng-repeat="cat in serviceList.services" class="ms-card">
           <div class="ms-card-content-wrapper template-3 teal-bg p-16 white-fg" layout="row" layout-align="space-between">
             <div>
 
@@ -15,6 +15,9 @@
 
                 <div class="subtitle h3 secondary-text" >
                   {{cat.description}}
+                </div>
+                <div class="">
+                  <ser-categories category-ids="cat.categoryIds"></ser-categories>
                 </div>
               </div>
 

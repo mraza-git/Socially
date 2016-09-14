@@ -6,6 +6,7 @@ import utilsPagination from 'angular-utils-pagination';
 import "../../../../../client/fuse/core/core.module.js";
 import {name as CategoryAddButton} from './categoryAddButton/categoryAddButton';
 import {name as CategoryRemove} from './categoryRemove/categoryRemove';
+import {name as ServiceCount} from './serviceCount/serviceCount';
 
 import modalTemplate from './categoryAddButton/categoryAddModal.html';
 import webTemplate from './categories.web.html';
@@ -66,6 +67,7 @@ export default angular.module(name, [
   'app.core',
   CategoryAddButton,
   CategoryRemove,
+  ServiceCount,
 
 ]).component(name, {
   template,

@@ -27,7 +27,13 @@ if (Meteor.isServer) {
     });
   });
 
+  Meteor.publish('singleThumb96', function () {
+    return Thumbs96.find({});
+  });
 
+  Meteor.publish('singleThumb40', function () {
+    return Thumbs40.find({});
+  });
 
   Meteor.publish('images', function () {
     return Images.find({});

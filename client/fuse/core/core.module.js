@@ -1,7 +1,7 @@
 
 import  'angular';
 import  'angular-meteor';
-import '../../../imports/focui/landing/js/jquery-2.1.1.js';
+
 import ngCookies from 'angular-cookies';
 import ngMessages from 'angular-messages';
 import ngResource from  'angular-resource';

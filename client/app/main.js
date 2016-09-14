@@ -6,6 +6,7 @@ import {name as CategoryList} from '../../imports/focui/components/admin/categor
 import {name as ServiceList} from '../../imports/focui/components/admin/services/services';
 import {name as SampleContact} from '../../imports/focui/components/sample/sample.js';
 
+
 import '../sample/sample.module.js';
 import '../foc-apps/chat/chat.module.js';
 import '../foc-apps/profile/profile.module.js';
@@ -42,7 +43,7 @@ angular
         Landing,
         //
         // // Sample app
-        // 'app.sample',
+        'app.sample',
 
         //Admin app
         userList,
@@ -125,7 +126,7 @@ function routeConfig($stateProvider, $urlRouterProvider, $locationProvider)
 {
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise('/projects/dashboard');
+    $urlRouterProvider.otherwise('/landing');
 
     /**
      * Layout Style Switcher

@@ -9,7 +9,7 @@ export const Thumbs96Store = new UploadFS.store.GridFS({
   transformWrite: function(from, to, fileId, file) {
         var gm = require('gm').subClass({imageMagick:true});
         if (gm) {
-            gm(from,file)
+            gm(from)
                 .resize(96, 96)
                 .gravity('Center')
                 .extent(96, 96)
@@ -27,7 +27,7 @@ export const Thumbs40Store = new UploadFS.store.GridFS({
   transformWrite: function(from, to, fileId, file) {
         var gm = require('gm').subClass({imageMagick:true});
         if (gm) {
-            gm(from,file)
+            gm(from)
                 .resize(40, 40)
                 .gravity('Center')
                 .extent(40, 40)
@@ -54,7 +54,7 @@ export const ImagesStore = new UploadFS.store.GridFS({
   transformWrite: function(from, to, fileId, file) {
         var gm = require('gm').subClass({imageMagick:true});
         if (gm) {
-            gm(from,file)
+            gm(from)
                 // .resize(1000, 1000,'^')
                 // .gravity('Center')
                 // .extent(1000, 1000)

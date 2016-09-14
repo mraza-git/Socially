@@ -8,6 +8,7 @@ import "angular-sortable-view";
 import {name as ServiceAddButton} from './serviceAddButton/serviceAddButton';
 import {name as ServiceRemove} from './serviceRemove/serviceRemove';
 import {name as QuestionList} from '../questions/questions';
+import {name as ServiceCategories} from "./serCategories/serCategories"
 
 import modalTemplate from './serviceAddButton/serviceAddModal.html';
 import webTemplate from './services.web.html';
@@ -20,22 +21,29 @@ class ServiceList{
     'ngInject';
     this.$mdDialog = $mdDialog;
     this.$mdMedia = $mdMedia;
+    $reactive(this).attach($scope);
 
     if($stateParams.catId){
       this.categoryId = $stateParams.catId;
+      this.subscribe('catServices',function(){
+        return [[this.getReactively("categoryId")]] || [];
+      });
+    }else{
+      this.subscribe('services');
     }
-    $reactive(this).attach($scope);
-    this.subscribe('catServices',function(){
-      return [[this.getReactively("categoryId")]] || [];
-    });
 
     this.helpers({
       services(){
-        return Services.find({
-          categoryId:{
-            $in: [this.getReactively("categoryId")],
-          },
-        });
+        if(this.categoryId){
+          return Services.find({
+            categoryIds:{
+              $in: [this.getReactively("categoryId")],
+            },
+          });
+        }
+        else{
+          return Services.find();
+        }
       },
       isLoggedIn() {
         return !!Meteor.userId();
@@ -81,7 +89,7 @@ export default angular.module(name, [
   ServiceAddButton,
   ServiceRemove,
   QuestionList,
-
+  ServiceCategories,
 ]).component(name, {
   template,
   controllerAs: name,

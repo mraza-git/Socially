@@ -1,0 +1,9 @@
+<div layout="row">
+  <div ng-repeat="cat in serCategories.categories">
+    <thumb-image layout="row" image-id="cat.image.id" size="40" image-class="circle"></thumb-image>
+    <md-tooltip md-direction="top">
+      {{cat.name}}
+    </md-tooltip>
+  </div>
+
+</div>

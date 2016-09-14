@@ -4,7 +4,7 @@
 
 
   <div layout="row">
-    <div layout="column" flex="30">
+    <div layout="column">
 
       <md-toolbar>
       <div class="md-title mt-48">Categories List</div>
@@ -23,6 +23,10 @@
                 <div class="subtitle h3 secondary-text" >
                   {{cat.description}}
                 </div>
+
+                <div class="">
+                  <service-count category-id="cat._id"></service-count>
+                </div>
               </div>
 
               <div class="cta">
@@ -33,8 +37,8 @@
                     Edit Category
                   </md-tooltip>
                 </md-button>
-                <!-- <md-button class="edit-button md-icon-button" ui-sref="app.servicelist({catId:cat._id})"> -->
-                <md-button class="edit-button md-icon-button" ng-click="categoryList.selectedCategory = cat._id">
+                <md-button class="edit-button md-icon-button" ui-sref="app.servicelist({catId:cat._id})">
+                <!-- <md-button class="edit-button md-icon-button" ng-click="categoryList.selectedCategory = cat._id"> -->
                   <md-icon md-font-icon="icon-pencil" class="s24"></md-icon>
                   <md-tooltip md-direction="bottom">
                     View and edit services
@@ -55,10 +59,10 @@
         </div>
       </md-content>
     </div>
-    <div layout="column" flex="30">
+    <!-- <div layout="column" flex="30">
       <md-toolbar>
       <div class="md-title mt-48">Services List</div>
       </md-toolbar>
-    <service-list category-id="{{categoryList.selectedCategory}}"></service-list>
-  </div>
+     <service-list category-id="{{categoryList.selectedCategory}}"></service-list>
+  </div> -->
   </div>

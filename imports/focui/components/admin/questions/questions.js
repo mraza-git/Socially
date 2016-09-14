@@ -24,12 +24,14 @@ class QuestionList{
       console.log(this.serviceId);
     }
     $reactive(this).attach($scope);
-    this.subscribe('service');
+    this.subscribe('service',function(){
+      return [[this.getReactively('serviceId')]] || []
+    });
 
     this.helpers({
       service(){
         return Services.findOne({
-          _id:this.getReactively("serviceId"),
+          _id:{$in: [this.getReactively("serviceId")]}
           });
         },
       isLoggedIn() {

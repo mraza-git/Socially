@@ -42,7 +42,7 @@ class FileUpload {
         }
         else {
           this.myCroppedImage = e.target.result;
-          this.cropIsDone = true;
+          this.cropDone();
         }
       });
 
